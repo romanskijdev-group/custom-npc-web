@@ -1,16 +1,24 @@
 import {ProfileButton} from "../buttons/ProfileButton.tsx";
-import {FaRegSmile} from "react-icons/fa";
-import {BsCashCoin} from "react-icons/bs";
-import {CiShoppingBasket} from "react-icons/ci";
-import { GoGear } from "react-icons/go";
+import React from "react";
 
-export const ProfileMenu = () => {
-    return (
-        <div className="flex flex-col gap-0.5">
-            <ProfileButton title={'Мой профиль'} active={true}> <FaRegSmile /> </ProfileButton>
-            <ProfileButton title={'Кошелёк'}> <BsCashCoin /> </ProfileButton>
-            <ProfileButton title={'Покупки'}> <CiShoppingBasket /> </ProfileButton>
-            <ProfileButton title={'Настройки'}> <GoGear/> </ProfileButton>
-        </div>
-    )
+interface ProfileMenuProps {
+    buttons: { title: string; icon: React.ReactNode }[];
+    activeIndex: number;
+    setActiveIndex: (index: number) => void;
 }
+
+export const ProfileMenu: React.FC<ProfileMenuProps> = ({ buttons, activeIndex, setActiveIndex }) => {
+    return (
+        <div className="flex items-end flex-col gap-1">
+            {buttons.map((button, index) => (
+                <ProfileButton
+                    key={index}
+                    title={button.title}
+                    icon={button.icon}
+                    active={index === activeIndex}
+                    onClick={() => setActiveIndex(index)}
+                />
+            ))}
+        </div>
+    );
+};
