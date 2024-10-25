@@ -1,15 +1,15 @@
-import { UnderscoreLink } from '../UnderscoreLink'
+import {CiImageOff} from "react-icons/ci";
 
 export const ProfileAvatar = ( { name } : { name: string } ) => {
     return(
-        <div className='flex gap-[80px] items-center'>
-            <div className='rounded-full border w-[180px] flex items-center justify-center h-[180px] mt-[20px] ml-[20px] bg-[#FFF] text-[#000] opacity-50'>
-                <p className='text-3xl'>{ name[0] }</p>
-            </div>
-            <div className=''>
-                <p className='text-gray-700 font-light font-semibold text-2xl'>{ name }</p>
+        <div className='col-span-2 border shadow-md rounded-lg relative'>
+            <div className='flex flex-col gap-[10px] items-center p-6'>
+                <div
+                    className='rounded-full border w-[120px] flex items-center justify-center h-[120px] '>
+                    <p className='text-black text-5xl'><CiImageOff /></p>
+                </div>
+                <p className='text-gray-700 font-light font-semibold text-2xl'>{name}</p>
                 <p className='opacity-50'>Roman</p>
-                <p className='font-semibold text-base text-center opacity-50'>Авторизован через <UnderscoreLink link='/' title='Elician.ru'/></p>
             </div>
         </div>
     )

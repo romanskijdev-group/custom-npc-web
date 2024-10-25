@@ -1,6 +1,6 @@
 import {useTranslation} from "react-i18next";
 
-export const PartnerItem = ({image, title, description, link}: {image: string, title: string, description?: string, link?:string}) => {
+export const PartnerItem = ({image, title, description, link}: {image: string, title: string, description: string, link?:string}) => {
     const { t } = useTranslation();
 
     return(
