@@ -25,7 +25,7 @@ export const User = ( {name}: { name: string } ) => {
                 <SlOptionsVertical />
             </div>
             <div className={`absolute bg-[#F7F7F7] -bottom-[140px] left-0 px-4 py-2 rounded-lg flex flex-col gap-[10px] ${open ? 'block' : 'hidden'}`}>
-                <ProfileOptionsButton link='/profile'> <CgProfile /> Профиль </ProfileOptionsButton>
+                <ProfileOptionsButton link='/dashboard/profile'> <CgProfile /> Профиль </ProfileOptionsButton>
                 <ProfileOptionsButton link='/npc'> <IoMdOptions /> Настройки </ProfileOptionsButton>
                 <div className='h-[1px] border-b'></div>
                 <div className='w-max h-max' onClick={() => {

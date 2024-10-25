@@ -3,6 +3,7 @@ import { CgOrganisation } from 'react-icons/cg'
 import { BiLogoTypescript, BiSupport } from 'react-icons/bi'
 import { IoCodeWorkingSharp } from 'react-icons/io5'
 import { IoIosHeart } from 'react-icons/io'
+import { NavLink } from 'react-router-dom'
 
 export const Footer = () => {
     return (
@@ -45,6 +46,8 @@ export const Footer = () => {
                        className='dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-400 duration-300'>Панель управления</a>
                     <a href='https://google.com/'
                        className='dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-400 duration-300'>Политика использования</a>
+                    <NavLink to='/user_agreement'
+                       className='dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-400 duration-300'> Пользовательское соглашение</NavLink>
                 </div>
             </div>
             <p className='flex items-center justify-center dark:bg-gray-900 text-center py-2 border-t dark:border-gray-500/50 w-full sm:w-1/2 sm:text-sm text-[10px]'>Copyright © 2024 QuestHolder by Roman. Made with <IoIosHeart className='text-red-500'/> and <BiLogoTypescript className='text-blue-400'/> for better questing.</p>
