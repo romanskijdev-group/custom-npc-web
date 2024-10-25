@@ -1,6 +1,9 @@
 import { AiFillGithub, AiFillGitlab, AiOutlineQq } from 'react-icons/ai'
+import {useTranslation} from "react-i18next";
 
 export const DevTogether = ({ aos } : { aos?:string }) => {
+    const { t } = useTranslation();
+
     return (
         <div data-aos={aos}
             className="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-500 dark:bg-gray-700">
@@ -20,8 +23,8 @@ export const DevTogether = ({ aos } : { aos?:string }) => {
                         </svg>
                     </div>
                     <div className="space-y-2">
-                        <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Разрабатывайте вместе</h2>
-                        <p className="dark:text-gray-300 text-gray-700">Приглайшайте друзей и коллег в созданные проекты, чтобы вести разработку плечом к плечу.</p>
+                        <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">{t('capability.cooperative.title')}</h2>
+                        <p className="dark:text-gray-300 text-gray-700">{t('capability.cooperative.body')}</p>
                     </div>
                 </div>
                 <div

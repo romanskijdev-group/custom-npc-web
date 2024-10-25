@@ -1,4 +1,8 @@
+import {useTranslation} from "react-i18next";
+
 export const Faster = ({ aos } : { aos?:string })  => {
+    const { t } = useTranslation();
+
     return (
         <div data-aos={aos}
             className="p-8 rounded-xl bg-white bg-opacity-20 border border-gray-200 dark:border-gray-500">
@@ -13,8 +17,8 @@ export const Faster = ({ aos } : { aos?:string })  => {
                         </svg>
                     </div>
                     <div className="space-y-2">
-                        <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Быстрее всех</h2>
-                        <p className="dark:text-gray-300 text-gray-700">Разрабатывайте собственные решения быстрее кого бы то ни было!</p>
+                        <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">{t('capability.speed.title')}</h2>
+                        <p className="dark:text-gray-300 text-gray-700">{t('capability.speed.body')}</p>
                     </div>
                 </div>
                 <div

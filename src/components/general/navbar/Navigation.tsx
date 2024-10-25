@@ -7,8 +7,11 @@ import { SelectLanguage } from './SelectLanguage.tsx'
 import { NavLink } from 'react-router-dom'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { ThemeChanger } from './ThemeChanger.tsx'
+import { useTranslation } from 'react-i18next';
 
 export const Navigation: React.FC = () => {
+    const { t } = useTranslation();
+
     return(
         <div className='z-50'>
             <nav className='bg-black border-gray-200 px-2 sm:py-1.5'>
@@ -19,15 +22,15 @@ export const Navigation: React.FC = () => {
                             className='self-center text-2xl font-semibold whitespace-nowrap dark:text-white'>QuestHolder</p>
                     </a>
                     <NavMenu aos='fade-in'>
-                        <NavItem link='#' title={'Главная'} />
-                        <NavItem link='#' title={'О проекте'} />
-                        <NavItem link='#' title={'Возможности'} />
-                        <NavItem link='#' title={'Контакты'} />
+                        <NavItem link='#' title={'navigation.main'} />
+                        <NavItem link='#' title={'navigation.about'} />
+                        <NavItem link='#' title={'navigation.capability'} />
+                        <NavItem link='#' title={'navigation.contacts'} />
                     </NavMenu>
                     <BurgerMenu></BurgerMenu>
                     <NavLink data-aos='fade-in' to='/dashboard/home'
                              className='hidden sm:flex items-center gap-[20px] text-lg border bg-gray-100 dark:bg-gray-700 dark:text-gray-200 py-1.5 px-4 rounded-lg shadow-sm cursor-pointer dark:border-gray-500 hover:bg-gradient-to-br hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 hover:text-white'>
-                        <FaArrowRightLong /> Начать работу</NavLink>
+                        <FaArrowRightLong /> {t('general.start')}</NavLink>
                     <ThemeChanger></ThemeChanger>
                     <SelectLanguage aos='fade-left'/>
                 </div>

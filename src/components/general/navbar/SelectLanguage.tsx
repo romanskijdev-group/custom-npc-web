@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react'
 import ruFlag from '../../../assets/russia-flag-icon.svg'
 import usFlag from '../../../assets/united-states-flag-icon.svg'
 import Cookies from 'js-cookie'
+import { useTranslation } from 'react-i18next';
 
 export const SelectLanguage = ({aos}: {aos?:string}) => {
+    const { i18n } = useTranslation();
+
     const langList = {
         ru: "Русский",
         en: "English",
     }
+
     const [lang, setLang] = useState(Cookies.get('lang') || 'ru');
     const [open, setOpen] = useState<boolean>(false);
 
@@ -18,6 +22,7 @@ export const SelectLanguage = ({aos}: {aos?:string}) => {
     const selectLanguage = ({selected}: {selected: string}) => {
         setOpen(false)
         setLang(selected)
+        i18n.changeLanguage(selected);
     }
 
     return(

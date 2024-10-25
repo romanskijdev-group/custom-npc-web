@@ -1,18 +1,12 @@
-import { ProfileBioCard } from '../ui/profile/ProfileBioCard'
-import { ProfileHeader } from '../ui/profile/ProfileHeader'
-import React from 'react'
-import { SubscriptionCard } from '../ui/profile/SubscriptionCadr'
+import {ProfileMenu} from "../ui/profile/ProfileMenu.tsx";
+import {ProfileAvatar} from "../ui/profile/ProfileAvatar.tsx";
 
 const Profile = () => {
     return (
-        <div>
-            <ProfileHeader></ProfileHeader>
-            <div className='flex mt-4'>
-                <ProfileBioCard></ProfileBioCard>
-                <SubscriptionCard></SubscriptionCard>
-            </div>
+        <div className="grid grid-cols-4">
+            <ProfileMenu></ProfileMenu>
+            <ProfileAvatar name='Sansara'/>
         </div>
-        
     )
 }
 

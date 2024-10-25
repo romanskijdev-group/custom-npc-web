@@ -1,4 +1,8 @@
+import {useTranslation} from "react-i18next";
+
 export const Secure = ({ aos } : { aos?:string })  => {
+    const { t } = useTranslation();
+
     return (
         <div data-aos={aos}
             className="p-8 rounded-xl bg-white bg-opacity-20 border border-gray-200 dark:border-gray-500">
@@ -15,9 +19,8 @@ export const Secure = ({ aos } : { aos?:string })  => {
                     </svg>
                 </div>
                 <div className="mt-6 text-center relative z-10 space-y-2">
-                    <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Защита
-                        данных</h2>
-                    <p className="dark:text-gray-300 text-gray-700 ">Защита созданных вами проектов при помощи шифрования <br/> и уникальных ключей доступа.</p>
+                    <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">{t('capability.secure.title')}</h2>
+                    <p className="dark:text-gray-300 text-gray-700 ">{t('capability.secure.body')}</p>
                 </div>
             </div>
         </div>

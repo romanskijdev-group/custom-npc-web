@@ -1,4 +1,8 @@
+import {useTranslation} from "react-i18next";
+
 export const Custom = ({ aos } : { aos?:string }) => {
+    const { t } = useTranslation();
+
     return (
         <div data-aos={aos}
              className="m-auto relative border dark:border-gray-500 w-full bg-opacity-20 bg-white px-4 py-8 rounded-lg duration-300">
@@ -13,10 +17,8 @@ export const Custom = ({ aos } : { aos?:string }) => {
                     className="w-fit block mx-auto text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-pink-600 dark:from-blue-400 dark:to-pink-400">100%</span>
             </div>
             <div className="mt-6 text-center relative z-10 space-y-2">
-                <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">Экспорт
-                    данных</h2>
-                <p className="dark:text-gray-300 text-gray-700 ">Экспортируйте готовые решения для дальнейшего
-                    использования.</p>
+                <h2 className="text-lg font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white">{t('capability.export.title')}</h2>
+                <p className="dark:text-gray-300 text-gray-700 ">{t('capability.export.body')}</p>
             </div>
         </div>
     )

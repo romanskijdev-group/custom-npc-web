@@ -1,0 +1,43 @@
+{
+  "general": {
+    "start" : "Get started",
+    "what_is": "What is this project?",
+    "find_out": "Find out more"
+  },
+  "navigation": {
+    "main": "Main",
+    "about": "About the project",
+    "capability" : "Capability",
+    "contacts" : "Contacts"
+  },
+  "banner": {
+    "title": "Creating quests is much faster with QuestHolder features",
+    "body": "Develop your own quest projects using an open source tool containing many useful tools such as working with dialogues, quests and much more."
+  },
+  "create_with": {
+    "supported": "Developed with the support of:",
+    "minecraft": "Minecarft server project"
+  },
+  "capability": {
+    "title": "Capability",
+    "export": {
+      "title": "Export data",
+      "body": "Export ready-made solutions for further use."
+    },
+    "secure": {
+      "title": "Data protection",
+      "body": "Protect the projects you create with encryption\nand unique access keys."
+    },
+    "speed": {
+      "title": "Faster than anyone else",
+      "body": "Develop your own solutions faster than anyone else!"
+    },
+    "cooperative": {
+      "title": "Develop together",
+      "body": "Invite friends and colleagues to the created projects to lead the development side-by-side."
+    }
+  },
+  "footer": {
+    "copyright": "Copyright 2023"
+  }
+}
