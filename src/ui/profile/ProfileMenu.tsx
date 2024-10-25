@@ -2,6 +2,7 @@ import {ProfileButton} from "../buttons/ProfileButton.tsx";
 import {FaRegSmile} from "react-icons/fa";
 import {BsCashCoin} from "react-icons/bs";
 import {CiShoppingBasket} from "react-icons/ci";
+import { GoGear } from "react-icons/go";
 
 export const ProfileMenu = () => {
     return (
@@ -9,6 +10,7 @@ export const ProfileMenu = () => {
             <ProfileButton title={'Мой профиль'} active={true}> <FaRegSmile /> </ProfileButton>
             <ProfileButton title={'Кошелёк'}> <BsCashCoin /> </ProfileButton>
             <ProfileButton title={'Покупки'}> <CiShoppingBasket /> </ProfileButton>
+            <ProfileButton title={'Настройки'}> <GoGear/> </ProfileButton>
         </div>
     )
 }
