@@ -8,7 +8,7 @@ export const SideBarButton = ({ title, linkTo, children, className }: {title: st
     <li className="rounded-lg mb-4 list-none">
       <NavLink
         to={linkTo}
-        className={`${className} flex items-center gap-4 text-sm text-gray-700 dark:text-gray-200 font-light px-4 py-3 rounded-lg hover:bg-gradient-to-br from-yellow-500 via-red-500 to-pink-500 hover:text-white hover:shadow-lg
+        className={`${className} flex items-center gap-4 text-sm text-gray-700 dark:text-[#8D8E91] hover:dark:text-white font-light px-4 py-3 rounded-lg hover:bg-gradient-to-br from-yellow-500 via-red-500 to-pink-500 hover:text-white hover:shadow-lg
         ${path.pathname == linkTo ? 'bg-gradient-to-br from-yellow-500 via-red-500 to-pink-500 text-white shadow-md' : ''}`}
       >
         {children}

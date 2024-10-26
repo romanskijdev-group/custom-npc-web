@@ -13,10 +13,10 @@ const Profile = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const buttons = [
-        {title: 'Мой профиль', icon: <FaRegSmile/>},
-        {title: 'Кошелёк', icon: <BsCashCoin/>},
-        {title: 'Покупки', icon: <CiShoppingBasket/>},
-        {title: 'Настройки', icon: <GoGear/>},
+        {title: 'profile.user.title', icon: <FaRegSmile/>},
+        {title: 'profile.wallet.title', icon: <BsCashCoin/>},
+        {title: 'profile.transaction.title', icon: <CiShoppingBasket/>},
+        {title: 'profile.settings.title', icon: <GoGear/>},
     ];
 
     const renderActiveComponent = () => {
