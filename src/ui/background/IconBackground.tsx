@@ -9,10 +9,13 @@ interface IconBackgroundProps {
 }
 
 const IconBackground: React.FC<IconBackgroundProps> = ({icons, iconSize = 24, iconOpacity = 0.1,}) => {
-    const getRandomPosition = () => Math.random() * 100;
+    function getRandomPosition(minOffset = 0, maxOffset = 100): number {
+        return Math.floor(Math.random() * (maxOffset - minOffset + 1)) + minOffset;
+    }
+
 
     return (
-        <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="fixed inset-0 -z-10 overflow-hidden dark:bg-[#14151B]">
             <div className="grid grid-cols-12 grid-rows-12 gap-0 h-full w-full">
                 {Array.from({ length: 12 * 12 }).map((_, index) => (
                     <div
@@ -25,10 +28,10 @@ const IconBackground: React.FC<IconBackgroundProps> = ({icons, iconSize = 24, ic
                     >
                         {icons[Math.floor(Math.random() * icons.length)] && (
                             <div
-                                className="absolute fade-in-enter" // Добавляем класс анимации
+                                className="absolute fade-in-enter dark:text-white" // Добавляем класс анимации
                                 style={{
-                                    top: `${getRandomPosition()}%`,
-                                    left: `${getRandomPosition()}%`,
+                                    top: `${getRandomPosition(10, 90)}%`, // Используйте функцию с min/max смещением
+                                    left: `${getRandomPosition(10, 90)}%`, // Используйте функцию с min/max смещением
                                     opacity: iconOpacity,
                                     transform: `translate(-50%, -50%) rotate(${getRandomPosition() *
                                     3.6}deg)`,

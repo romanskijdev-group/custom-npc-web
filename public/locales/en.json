@@ -37,6 +37,29 @@
       "body": "Invite friends and colleagues to the created projects to lead the development side-by-side."
     }
   },
+  "profile": {
+    "user": {
+      "title": "My profile"
+    },
+    "wallet": {
+      "title": "Wallet"
+    },
+    "transaction": {
+      "title": "Purchases"
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Be careful! When changing the active tab, some entered settings will not be saved.",
+      "theme": "Theme",
+      "language": "Language",
+      "upload_avatar": "Upload avatar",
+      "file": "Selected file"
+    }
+  },
+  "upload_file": {
+    "light_title" : "or drag and drop",
+    "bold_title" : "Click to load"
+  },
   "footer": {
     "copyright": "Copyright 2023"
   }

@@ -18,7 +18,7 @@ export const RecentProjects = () => {
     }
 
     return(
-        <div className='flex sm:flex-row flex-col gap-[20px] dark:text-gray-200'>
+        <div className='flex sm:flex-row flex-col gap-[20px] dark:text-gray-200 bg-white bg-opacity-70'>
             <div className='border py-4 px-2 w-full rounded-lg dark:border-gray-500'>
                 <p className='flex items-center gap-[10px] mb-[20px]'> <GrHistory className='text-yellow-800'/> Недавние проекты:</p>
                 <div className='mx-[auto] sm:mt-0 mt-[20px] h-full flex-col w-full'>{ user.isLoggedIn ? (
