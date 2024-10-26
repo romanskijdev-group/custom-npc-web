@@ -18,8 +18,8 @@ export const RecentProjects = () => {
     }
 
     return(
-        <div className='flex sm:flex-row flex-col gap-[20px] dark:text-gray-200 bg-white bg-opacity-70'>
-            <div className='border py-4 px-2 w-full rounded-lg dark:border-gray-500'>
+        <div className='flex sm:flex-row flex-col gap-[20px] dark:text-gray-200'>
+            <div className='border py-4 px-2 w-full rounded-lg dark:bg-[#1B1C22] dark:border-[#27282D] bg-opacity-70 dark:bg-opacity-70'>
                 <p className='flex items-center gap-[10px] mb-[20px]'> <GrHistory className='text-yellow-800'/> Недавние проекты:</p>
                 <div className='mx-[auto] sm:mt-0 mt-[20px] h-full flex-col w-full'>{ user.isLoggedIn ? (
                     projects.projects.length < 1 ? <p className='text-center'>Не найдено</p> :
@@ -37,7 +37,7 @@ export const RecentProjects = () => {
                         <TableRow rowAmount={0} rowTitle='Локаций'></TableRow>
                     </TableContainer>
                 ) : (
-                    <div className='border py-4 w-full rounded-lg px-2 flex flex-col gap-[20px] dark:border-gray-500'>
+                    <div className='border py-4 w-full rounded-lg px-2 flex flex-col gap-[20px] dark:bg-[#1B1C22] dark:border-[#27282D] bg-opacity-70 dark:bg-opacity-70'>
                         <p className='flex items-center gap-[10px]'> <FaSortAmountDownAlt className='text-yellow-800'/> Недавние проекты:</p>
                         <p className='mx-[auto] h-full flex justify-center items-center w-max opacity-50'>Войдите в аккаунт</p>
                     </div>

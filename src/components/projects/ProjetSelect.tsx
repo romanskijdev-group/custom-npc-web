@@ -8,7 +8,7 @@ export const ProjectSelect = ( { includeValue } : { includeValue: string } ) => 
     const user = useSelector((state: RootState) => state.user);
 
     return(
-        <div className='flex flex-col gap-[20px] dark:text-gray-200'>
+        <div className='flex flex-col gap-[20px] dark:text-gray-200 dark:bg-[#1B1C22] dark:border-[#27282D]'>
             <div className='w-full py-4 px-2 border rounded-lg'>
                 <p className='flex items-center mx-[auto] w-max gap-[10px] mb-[20px] '> <LiaGetPocket className='text-yellow-800'/> Выбор проекта:</p>
                 <div className='mx-[auto] sm:mt-0 mt-[20px] h-full flex-col w-full'>{ user.isLoggedIn ? (

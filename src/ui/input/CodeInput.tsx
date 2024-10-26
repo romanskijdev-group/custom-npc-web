@@ -114,7 +114,7 @@ const CodeInput: React.FC<CodeInputProps>= ({ code, setCode }) => {
                             value={digit}
                             onChange={(e) => handleChange(index, e.target.value)}
                             onKeyDown={(e) => handleKeyDown(index, e)}
-                            className="w-10 h-10 text-center border rounded-lg border-gray-300 focus:outline-none focus:border-yellow-600"
+                            className="w-10 h-10 text-center border rounded-lg border-gray-300 focus:outline-none focus:border-yellow-600 dark:bg-[#1B1C22] dark:border-[#27282D]"
                         />
                     ))}
                 </div>

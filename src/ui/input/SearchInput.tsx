@@ -19,7 +19,7 @@ export const Search: React.FC<SearchProps> = ({searchValue, setValue}) => {
                     </svg>
                 </div>
                 <input type="search" id="default-search"
-                       className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none"
+                       className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:outline-none dark:bg-[#1B1C22] dark:border-[#27282D]"
                        placeholder="Искать..."
                        value={searchValue}
                        onChange={(e) => {

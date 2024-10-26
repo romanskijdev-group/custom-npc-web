@@ -24,7 +24,7 @@ const Auth = () => {
 
     return(
         <div className='min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0'>
-            <div className='bg-[#F7F7F7] py-12 px-8 w-[400px] rounded-lg border flex flex-col gap-[30px]'>
+            <div className='bg-[#F7F7F7] py-12 px-8 w-[400px] rounded-lg border dark:bg-[#1B1C22] dark:border-[#27282D] dark:text-white flex flex-col gap-[30px]'>
                 <p className='font-semibold text-2xl flex items-center gap-[10px] justify-center'>Вход в аккаунт <IoMdLogIn
                     className='text-yellow-700'/></p>
                 {

@@ -8,7 +8,7 @@ export const SelectedProjectDialogs = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     return(
-        <div className='flex flex-col gap-[20px] border rounded-lg px-2 py-4'>
+        <div className='flex flex-col gap-[20px] border rounded-lg px-2 py-4 dark:bg-[#1B1C22]'>
             <div className='flex sm:flex-row flex-col gap-[20px]'>
                 <p className='flex flex-row items-center gap-[10px] opacity-50 hover:opacity-100 transition duration-300 cursor-pointer'
                    onClick={() => { dispatch(resetProject()) }}><FaArrowLeft className='text-yellow-700'/> К проектам</p>
