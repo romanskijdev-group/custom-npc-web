@@ -1,6 +1,5 @@
-
 import React from "react";
-import { IconType } from "react-icons";
+import {IconType} from "react-icons";
 
 interface IconBackgroundProps {
     icons: IconType[];
@@ -13,11 +12,10 @@ const IconBackground: React.FC<IconBackgroundProps> = ({icons, iconSize = 24, ic
         return Math.floor(Math.random() * (maxOffset - minOffset + 1)) + minOffset;
     }
 
-
     return (
         <div className="fixed inset-0 -z-10 overflow-hidden dark:bg-[#14151B]">
             <div className="grid grid-cols-12 grid-rows-12 gap-0 h-full w-full">
-                {Array.from({ length: 12 * 12 }).map((_, index) => (
+                {Array.from({length: 12 * 12}).map((_, index) => (
                     <div
                         key={index}
                         className="relative"
