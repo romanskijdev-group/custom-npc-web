@@ -12,6 +12,7 @@ import Stepper from "../ui/profile/Stepper.tsx";
 import SettingsForm from "../ui/profile/SettingsForm.tsx";
 import Toggle from "../ui/input/Toggle.tsx";
 import {IoSaveOutline} from "react-icons/io5";
+import {ColorPicker} from "../ui/profile/ColorPicker.tsx";
 
 interface SettingsFormData {
     nickname: string;
@@ -148,7 +149,9 @@ export const ProfileSettings = () => {
                         <IoSaveOutline/> Сохранить
                     </button>
                 </div>
+                <ColorPicker></ColorPicker>
         </>
+        
     );
 };
 
