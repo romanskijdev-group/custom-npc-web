@@ -29,7 +29,7 @@ export const Navigation: React.FC = () => {
                     </NavMenu>
                     <BurgerMenu></BurgerMenu>
                     <NavLink data-aos='fade-in' to='/dashboard/home'
-                             className='hidden sm:flex items-center gap-[20px] text-lg border bg-gray-100 dark:bg-gray-700 dark:text-gray-200 py-1.5 px-4 rounded-lg shadow-sm cursor-pointer dark:border-gray-500 hover:bg-gradient-to-br hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 hover:text-white'>
+                             className='hidden sm:flex items-center gap-[20px] text-lg border bg-gray-100 dark:bg-[#1B1C22] dark:border-[#27282D] dark:text-gray-200 py-1.5 px-4 rounded-lg shadow-sm cursor-pointer hover:bg-gradient-to-br hover:from-yellow-500 hover:via-red-500 hover:to-pink-500 hover:text-white'>
                         <FaArrowRightLong /> {t('general.start')}</NavLink>
                     <ThemeChanger></ThemeChanger>
                     <SelectLanguage aos='fade-left'/>

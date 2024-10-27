@@ -5,7 +5,7 @@ export const Custom = ({ aos } : { aos?:string }) => {
 
     return (
         <div data-aos={aos}
-             className="m-auto relative border dark:border-gray-500 w-full bg-opacity-20 bg-white px-4 py-8 rounded-lg duration-300">
+             className="m-auto relative border dark:border-[#27282D] w-full bg-opacity-5 bg-white px-4 py-8 rounded-lg duration-300">
             <div className="relative mx-auto h-24 w-56 flex items-center">
                 <svg className="absolute inset-0 size-full text-gray-400 dark:text-gray-200" viewBox="0 0 254 104"
                      fill="none" xmlns="http://www.w3.org/2000/svg">

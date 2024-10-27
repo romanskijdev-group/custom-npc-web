@@ -10,7 +10,7 @@ import { Contacts } from '../components/mainPage/contacts/Contacts.tsx'
 const MainPage = () => {
     return(
         <div className='pt-5'>
-            <div className='background bg-white dark:bg-gray-900'>
+            <div className='background bg-white dark:bg-[#14151B]'>
                 <span className='-z-1'></span>
                 <span className='-z-1'></span>
                 <span className='-z-1'></span>

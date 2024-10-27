@@ -1,11 +1,3 @@
-import { LuCrown } from "react-icons/lu";
-import { BsFillRocketTakeoffFill } from "react-icons/bs";
-import { FaHandshake } from "react-icons/fa6";
-import { FaFileImport } from "react-icons/fa6";
-import { FaPeopleArrows } from "react-icons/fa";
-import { FaTools } from "react-icons/fa";
-
-
 export const About = () => {
     return(
         <div id='about' className='flex flex-col gap-[8px] sm:max-w-screen-xl w-[90%] mx-auto mt-[150px] border dark:border-gray-500 rounded-lg p-4' data-aos='fade-up'>

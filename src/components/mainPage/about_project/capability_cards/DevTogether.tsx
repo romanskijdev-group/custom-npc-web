@@ -6,7 +6,7 @@ export const DevTogether = ({ aos } : { aos?:string }) => {
 
     return (
         <div data-aos={aos}
-            className="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:border-gray-500 dark:bg-gray-700">
+            className="col-span-full lg:col-span-3 overflow-hidden relative p-8 rounded-xl bg-white border border-gray-200 dark:bg-[#1B1C22] dark:border-[#27282D]">
             <div className="h-full grid sm:grid-cols-2">
                 <div className="flex flex-col justify-between relative z-10 space-y-12 lg:space-y-6">
                     <div

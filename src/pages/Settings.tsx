@@ -3,11 +3,27 @@ import {ProfileHeader} from "../ui/profile/ProfileHeader.tsx";
 import {FaCog, FaTrashAlt} from 'react-icons/fa';
 import {LuUpload} from "react-icons/lu";
 import {CgProfile} from "react-icons/cg";
-import {useState} from "react";
+import React, {useState} from "react";
 import UploadModal from "../ui/modal/UploadFile.tsx";
 import {ThemeChanger} from "../components/general/navbar/ThemeChanger.tsx";
 import {SelectLanguage} from "../components/general/navbar/SelectLanguage.tsx";
 import {useTranslation} from "react-i18next";
+import Stepper from "../ui/profile/Stepper.tsx";
+import SettingsForm from "../ui/profile/SettingsForm.tsx";
+import Toggle from "../ui/input/Toggle.tsx";
+import {IoSaveOutline} from "react-icons/io5";
+
+interface SettingsFormData {
+    nickname: string;
+    gender: string;
+    email: string;
+    password: string;
+    repeat_password: string;
+    first_name: string;
+    last_name: string;
+    company: string;
+    bio: string;
+}
 
 const profileSettingsHeader = () => {
     const { t } = useTranslation();
@@ -45,6 +61,28 @@ export const ProfileSettings = () => {
         setFileURL(null);
     };
 
+    const [formData, setFormData] = useState<SettingsFormData>({
+        bio: "",
+        gender: "", nickname: "",
+        email: '',
+        password: '',
+        repeat_password: '',
+        first_name: '',
+        last_name: '',
+        company: ''
+    });
+
+    const handleFormSubmit = (data: SettingsFormData) => {
+        setFormData(data);
+        console.log('Полученные данные:', data);
+    };
+
+    const [toggleChecked, setToggleChecked] = useState(true);
+
+    const handleToggleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setToggleChecked(e.target.checked);
+    };
+
     return (
         <>
             {profileSettingsHeader()}
@@ -59,10 +97,13 @@ export const ProfileSettings = () => {
                         <p className='text-gray-700 font-light opacity-50 text-sm w-2/3 z-10 dark:text-white'>
                             {t('profile.settings.language')}:
                         </p>
-                        <SelectLanguage style='dark:bg-[#1B1C22] dark:border-[#27282D]'/>
+                        <SelectLanguage/>
                     </div>
                 </div>
-                <div className='col-start-2 row-start-3 col-span-2 p-2 rounded-lg relative'>
+                <div className='col-start-2 row-start-3 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full'>
+                    <Stepper></Stepper>
+                </div>
+                <div className='col-start-2 row-start-4 col-span-2 p-2 rounded-lg relative'>
                     <div className='flex flex-row items-center gap-8'>
                         <div
                             className={`${!fileURL ? 'border-gray-200 border-dashed dark:border-[#27282D] hover:dark:bg-[#1B1C22] hover:dark:bg-opacity-70' : ''} flex items-center dark:border-[#27282D] justify-center min-w-[120px] min-h-[120px] w-max border-[2px] rounded-full cursor-pointer transition duration-300 hover:bg-white`}
@@ -90,6 +131,22 @@ export const ProfileSettings = () => {
                             </button>
                         </div>
                     )}
+                </div>
+                <div className='col-start-2 row-start-5 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full'>
+                    <SettingsForm onDataChange={handleFormSubmit} formData={formData}></SettingsForm>
+                </div>
+                <div className='col-start-2 row-start-6 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full'>
+                    <Toggle
+                        checked={toggleChecked}
+                        onChange={handleToggleChange}
+                        label="Получать уведомления"
+                    />
+                </div>
+                <div className='col-start-2 row-start-7 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full items-end'>
+                    <button onClick={clearFile}
+                            className="p-2 bg-green-500 w-max text-white dark:bg-green-700 rounded flex gap-3 items-center justify-center">
+                        <IoSaveOutline/> Сохранить
+                    </button>
                 </div>
         </>
     );

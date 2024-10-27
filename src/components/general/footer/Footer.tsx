@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom'
 
 export const Footer = () => {
     return (
-        <div className='flex flex-col items-center justify-center dark:text-gray-200 mt-[150px] bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-500' data-aos='fade-in'>
+        <div className='flex flex-col items-center justify-center dark:text-gray-200 mt-[150px] bg-gray-100 dark:bg-[#202126] dark:border-[#27282D] border-t border-gray-200' data-aos='fade-in'>
             <div
                 className='gap-[50px] px-4 py-12 w-full flex flex-row flex-wrap justify-start sm:justify-center'>
                 <div className='flex flex-col gap-[10px]'>
@@ -50,7 +50,7 @@ export const Footer = () => {
                        className='dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-400 duration-300'> Пользовательское соглашение</NavLink>
                 </div>
             </div>
-            <p className='flex items-center justify-center dark:bg-gray-900 text-center py-2 border-t dark:border-gray-500/50 w-full sm:w-1/2 sm:text-sm text-[10px]'>Copyright © 2024 QuestHolder by Roman. Made with <IoIosHeart className='text-red-500'/> and <BiLogoTypescript className='text-blue-400'/> for better questing.</p>
+            <p className='flex items-center justify-center bg-transparent text-center py-2 border-t dark:border-gray-500/50 w-full sm:w-1/2 sm:text-sm text-[10px]'>Copyright © 2024 QuestHolder by Roman. Made with <IoIosHeart className='text-red-500'/> and <BiLogoTypescript className='text-blue-400'/> for better questing.</p>
         </div>
     )
 }
