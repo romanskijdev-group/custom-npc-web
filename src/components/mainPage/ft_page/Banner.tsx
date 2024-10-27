@@ -9,7 +9,7 @@ import {useTranslation} from "react-i18next";
 export const Banner: FC = () => {
     const { t } = useTranslation();
     return(
-        <div data-aos='fade-up' className='mt-5 bg-white border dark:border-gray-500 rounded-lg px-5 py-10 dark:bg-gray-700 w-[90%] dark:text-gray-200 sm:max-w-screen-xl mx-auto z-50 flex flex-col gap-[30px]'>
+        <div data-aos='fade-up' className='mt-5 bg-white border dark:bg-[#1B1C22] dark:border-[#27282D] rounded-lg px-5 py-10 w-[90%] dark:text-gray-200 sm:max-w-screen-xl mx-auto z-50 flex flex-col gap-[30px]'>
             <h1 className='text-2xl sm:text-3xl text-center sm:w-[50%] mx-auto font-bold'>{t('banner.title')}</h1>
             <p className='opacity-60 text-center sm:w-[70%] mx-auto text-base'>{t('banner.body')}</p>
             <div className='w-max mx-auto flex flex-col sm:flex-row gap-[30px]'>

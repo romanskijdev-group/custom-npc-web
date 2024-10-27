@@ -5,7 +5,7 @@ import { TbFaceIdError } from 'react-icons/tb'
 
 const Error = () => {
     return(
-        <div className='flex sm:flex-row flex-col gap-[50px] w-full mx-[auto] h-[100vh] pl-[10%] items-center justify-center'>
+        <div className='flex sm:flex-row dark:text-[#8D8E91] flex-col gap-[50px] w-full mx-[auto] h-[100vh] pl-[10%] items-center justify-center'>
             <div className='flex flex-col gap-[20px]'>
                 <p className='font-semibold sm:text-[24px] text-lg'>404</p>
                 <p className='font-bold sm:text-[48px] text-2xl flex gap-[10px] items-center'>Страница не найдена <TbFaceIdError className='text-yellow-700'/></p>

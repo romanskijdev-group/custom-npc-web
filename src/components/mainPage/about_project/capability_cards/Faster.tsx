@@ -5,7 +5,7 @@ export const Faster = ({ aos } : { aos?:string })  => {
 
     return (
         <div data-aos={aos}
-            className="p-8 rounded-xl bg-white bg-opacity-20 border border-gray-200 dark:border-gray-500">
+            className="p-8 rounded-xl bg-white bg-opacity-5 border border-gray-200 dark:border-[#27282D]">
             <div className="grid sm:grid-cols-2">
                 <div className="flex flex-col justify-between relative z-10 space-y-12 lg:space-y-6">
                     <div

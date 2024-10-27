@@ -5,7 +5,7 @@ export const Secure = ({ aos } : { aos?:string })  => {
 
     return (
         <div data-aos={aos}
-            className="p-8 rounded-xl bg-white bg-opacity-20 border border-gray-200 dark:border-gray-500">
+            className="p-8 rounded-xl bg-white bg-opacity-5 border border-gray-200 dark:border-[#27282D]">
             <div>
                 <div
                     className="relative aspect-square rounded-full size-32 flex border mx-auto dark:bg-white/0 dark:border-white/10 before:absolute before:-inset-2 before:border dark:before:border-white/5 dark:before:bg-white/5 before:rounded-full">

@@ -20,3 +20,18 @@
 .fade-in-enter {
     animation: fadeIn 0.25s ease-in-out;
 }
+
+@keyframes fadeInGradient {
+    from {
+        background-size: 0;
+    }
+    to {
+        background-size: 100%;
+    }
+}
+
+.bg-gradient-animated {
+    background-size: 100%;
+    background-image: linear-gradient(to bottom right, yellow, red, pink);
+    animation: fadeInGradient 0.3s ease-in-out forwards;
+}
