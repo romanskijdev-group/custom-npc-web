@@ -6,6 +6,7 @@ interface IconBackgroundProps {
     icons: IconType[];
     iconSize?: number;
     iconOpacity?: number;
+    backgroundColor:string;
 }
 
 const IconBackground: React.FC<IconBackgroundProps> = ({icons, iconSize = 24, iconOpacity = 0.1,}) => {

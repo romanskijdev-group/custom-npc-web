@@ -1,56 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 
 interface ColorPickerProps {
-  onColorChange: (color: string) => void;
+  colorType: string; // Уникальный идентификатор для элемента
 }
 
-export const ColorPicker: React.FC<ColorPickerProps> = ({ onColorChange }) => {
-  const [selectedPreset, setSelectedPreset] = useState<'black' | 'white' | 'custom'>('custom');
-  const [customColor, setCustomColor] = useState('#007bff');
-
-  const presets = {
-    black: '#000000',
-    white: '#FFFFFF',
-    custom: customColor, // Здесь используем значение переменной customColor
-  };
+export const ColorPicker: React.FC<ColorPickerProps> = ({ colorType }) => {
+  const initialColor = Cookies.get(colorType) || '#ffffff';
+  const [customBGColor, setCustomBGColor] = useState(initialColor);
+  const customTextColor = Cookies.get('textColor') || '#000000';
 
   useEffect(() => {
-    onColorChange(presets[selectedPreset]);
-  }, [selectedPreset, customColor]);
+    if (customBGColor) {
+      Cookies.set(colorType, customBGColor);
+    }
+  }, [customBGColor, colorType]);
 
   const handleCustomColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newColor = e.target.value;
-    setCustomColor(newColor);
-    setSelectedPreset('custom');
+    setCustomBGColor(e.target.value);
   };
 
   return (
-    <div className="flex flex-col items-center mt-4">
-      <div className="flex mb-4">
-        <button
-          className={`w-8 h-8 rounded-full ${selectedPreset === 'black' ? 'border-2 border-black' : ''}`}
-          style={{ backgroundColor: '#000000' }}
-          onClick={() => setSelectedPreset('black')}
-        />
-        <button
-          className={`w-8 h-8 rounded-full ml-2 ${selectedPreset === 'white' ? 'border-2 border-black' : ''}`}
-          style={{ backgroundColor: '#FFFFFF' }}
-          onClick={() => setSelectedPreset('white')}
-        />
-        <button
-          className={`w-8 h-8 rounded-full ml-2 ${selectedPreset === 'custom' ? 'border-2 border-black' : ''}`}
-          style={{ backgroundColor: customColor }}
-          onClick={() => setSelectedPreset('custom')}
-        />
+    <div>
+      {[
+        { label: 'Выбор цвета фона', color: customBGColor, key: customBGColor },
+        { label: 'Выбор цвета текста', color: customTextColor, key: customTextColor },
+      ].map(({ label, color, key }) => (
+        <div key={key} className="flex flex-col items-center mt-4">
+          <label className="mb-2 text-center">{label}</label>
+          <input
+            type="color"
+            value={color}
+            onChange={handleCustomColorChange}
+            className="w-12 h-12 p-0 border-0 rounded-full"
+            style={{ backgroundColor: color, color: color }}
+            title={label}
+          />
+        </div>
+      ))}
+      <div className="mt-8 p-4 rounded-lg shadow-md" style={{ backgroundColor: customBGColor, color: customTextColor }}>
+        <p className="font-semibold text-2xl z-10">
+          ПАПАП
+        </p>
       </div>
-      <input
-        type="color"
-        value={customColor}
-        onChange={handleCustomColorChange}
-        className="w-24 h-24 p-0 border-0 rounded-full"
-        style={{ backgroundColor: customColor }}
-      />
     </div>
   );
 };
-export default ColorPicker;
