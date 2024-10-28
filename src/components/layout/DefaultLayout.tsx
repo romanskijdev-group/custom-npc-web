@@ -12,7 +12,7 @@ import {GiBattleAxe, GiSpiderWeb} from "react-icons/gi";
 export const DefaultLayout = () => {
   return (
     <div className=''>
-        <IconBackground icons={[BsCompass, BsMap, TbDiamondFilled, LuCoffee, GiSpiderWeb, GiBattleAxe, BsFillStarFill, BiCube]} iconSize={24} />
+        <IconBackground icons={[BsCompass, BsMap, TbDiamondFilled, LuCoffee, GiSpiderWeb, GiBattleAxe, BsFillStarFill, BiCube]} iconSize={24} iconOpacity={0.05} />
       <SideBar>
       </SideBar>
       <div className='md:ml-64 h-[100vh]'>
