@@ -12,6 +12,7 @@ import Stepper from "../ui/profile/Stepper.tsx";
 import SettingsForm from "../ui/profile/SettingsForm.tsx";
 import Toggle from "../ui/input/Toggle.tsx";
 import {IoSaveOutline} from "react-icons/io5";
+import {ColorPicker} from "../ui/profile/ColorPicker.tsx";
 
 interface SettingsFormData {
     nickname: string;
@@ -86,7 +87,7 @@ export const ProfileSettings = () => {
     return (
         <>
             {profileSettingsHeader()}
-                <div className='col-start-2 row-start-2 col-span-2 p-2 rounded-lg relative flex gap-8'>
+                <div className='col-start-2 row-start-2 col-span-2 p-2 w-128 rounded-lg relative flex place-content-between gap-8'>
                     <div className='flex flex-col gap-3 w-max'>
                         <p className='text-gray-700 font-light opacity-50 text-sm w-2/3 z-10 dark:text-white'>
                             {t('profile.settings.theme')}:
@@ -100,6 +101,7 @@ export const ProfileSettings = () => {
                         <SelectLanguage/>
                     </div>
                 </div>
+                
                 <div className='col-start-2 row-start-3 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full'>
                     <Stepper></Stepper>
                 </div>
@@ -147,8 +149,13 @@ export const ProfileSettings = () => {
                             className="p-2 bg-green-500 w-max text-white dark:bg-green-700 rounded flex gap-3 items-center justify-center">
                         <IoSaveOutline/> Сохранить
                     </button>
-                </div>
+                </div>  
+                <div
+                    className='col-start-2 row-start-8 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full items-end'>
+                    <ColorPicker colorType={'text'}></ColorPicker>
+                </div>   
         </>
+        
     );
 };
 
