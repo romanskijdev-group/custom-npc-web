@@ -14,6 +14,7 @@ import Toggle from "../ui/input/Toggle.tsx";
 import {IoSaveOutline} from "react-icons/io5";
 import {ColorPicker} from "../ui/profile/ColorPicker.tsx";
 import Cookies from 'js-cookie';
+import { CustomThemeSettings } from "../ui/background/CustomThemeSettings.tsx";
 
 interface SettingsFormData {
     nickname: string;
@@ -44,7 +45,7 @@ const profileSettingsHeader = () => {
     )
 }
 
-export const ProfileSettings = () => {
+export const ProfileSettings: React.FC = () => { const { pStyle, divStyle } = CustomThemeSettings();
     const { t } = useTranslation();
 
     const [isModalOpen, setModalOpen] = useState(false);
@@ -105,9 +106,10 @@ export const ProfileSettings = () => {
                   <SelectLanguage />
               </div>
           </div>
+          
           <div
             className="col-start-2 row-start-3 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full items-start">
-              <p className="text-gray-700 font-bold opacity-50 text-lg w-2/3 z-10 dark:text-yellow-300">
+              <p className="text-gray-700 font-bold opacity-50 text-lg w-2/3 z-10 dark:text-yellow-300" style={pStyle}>
                  Создание собственной цветовой схемы
               </p>
               <div className='flex gap-5'>
@@ -123,6 +125,7 @@ export const ProfileSettings = () => {
               Сбросить
             </button>
           </div>
+
           <div className="col-start-2 row-start-4 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full">
               <Stepper></Stepper>
           </div>
