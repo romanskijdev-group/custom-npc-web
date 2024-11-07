@@ -8,15 +8,18 @@ export const CustomThemeSettings = () => {
     const storedTextColor = Cookies.get('textColor'); 
     const [customTextColor] = useState<string | null>(storedTextColor || null); 
      
-    const pStyle: React.CSSProperties = { color: customTextColor && customTextColor !== '' ? customTextColor : undefined, }; 
-     
     const storedAccentColor = Cookies.get('accentColor'); 
-    const [customAccentColor] = useState<string>(storedAccentColor || '#14151B'); 
+    const [customAccentColor] = useState<string | null>(storedAccentColor || null); 
      
-    const divStyle = { 
+    const BGStyle = { 
         backgroundColor: customBGColor && customBGColor !== '' ? customBGColor : undefined, 
-        AccentColor: customAccentColor && customAccentColor !== '' ? customAccentColor : undefined,
     }
-  return {divStyle, pStyle};
+    const pStyle: React.CSSProperties = { 
+      color: customTextColor && customTextColor !== '' ? customTextColor : undefined, 
+    }; 
+    const divStyle = {
+      backgroundColor: customAccentColor && customAccentColor !== '' ? customAccentColor : undefined,
+    }
+  return {BGStyle, divStyle, pStyle};
 }
   
