@@ -6,6 +6,7 @@ import { About } from '../components/mainPage/about_project/About.tsx'
 import { Capability } from '../components/mainPage/about_project/Capability.tsx'
 import { Footer } from '../components/general/footer/Footer.tsx'
 import { Contacts } from '../components/mainPage/contacts/Contacts.tsx'
+import {CookiePolicyModal} from '../components/modal/CookieModal.tsx'
 
 const MainPage = () => {
     return(
@@ -25,6 +26,10 @@ const MainPage = () => {
             <Capability></Capability>
             <Contacts></Contacts>
             <Footer></Footer>
+        
+            <div className=''>
+                <CookiePolicyModal></CookiePolicyModal>
+            </div>
         </div>
     )
 }
