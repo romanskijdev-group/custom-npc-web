@@ -45,7 +45,7 @@ const profileSettingsHeader = () => {
     )
 }
 
-export const ProfileSettings: React.FC = () => { const { pStyle, divStyle } = CustomThemeSettings();
+export const ProfileSettings: React.FC = () => {// Коммент чтобы ошибку не било, на всякий | const { pStyle, BGStyle, divStyle } = CustomThemeSettings();
     const { t } = useTranslation();
 
     const [isModalOpen, setModalOpen] = useState(false);
@@ -109,7 +109,7 @@ export const ProfileSettings: React.FC = () => { const { pStyle, divStyle } = Cu
           
           <div
             className="col-start-2 row-start-3 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full items-start">
-              <p className="text-gray-700 font-bold opacity-50 text-lg w-2/3 z-10 dark:text-yellow-300" style={pStyle}>
+              <p className="text-gray-700 font-bold opacity-50 text-lg w-2/3 z-10 dark:text-yellow-300">
                  Создание собственной цветовой схемы
               </p>
               <div className='flex gap-5'>
