@@ -17,7 +17,7 @@ export const CookiePolicyModal: React.FC = () => {
     <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 z-50">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <p className="mb-4 md:mb-0 text-sm text-center md:text-left">
-          Мы используем собственные файлы cookie, а также файлы cookie третьих лиц на наших веб-сайтах для улучшения вашего опыта, анализа нашего трафика, а также для обеспечения безопасности и маркетинга. Оставаясь на сайте Вы соглашаетесь с <Link to = '/user_agreement' className="underline">Политикой использования файлов cookie</Link>
+          Мы используем собственные файлы cookie, а также файлы cookie третьих лиц на нашем веб-сайте для улучшения вашего опыта, анализа нашего трафика, а также для обеспечения безопасности и маркетинга. Оставаясь на сайте Вы соглашаетесь с <Link to = '/user_agreement' className="underline">Политикой использования файлов cookie</Link>
         </p>
         <div className="flex justify-center md:justify-end text-sm">
             <button 
@@ -28,19 +28,7 @@ export const CookiePolicyModal: React.FC = () => {
             </button>
         </div>
       </div> 
-      
-        {/* <p className="text-center mb-4">
-          Мы используем собственные файлы cookie, а также файлы cookie третьих лиц на наших веб-сайтах для улучшения вашего опыта, анализа нашего трафика, а также для обеспечения безопасности и маркетинга. Оставаясь на сайте Вы соглашаетесь с <Link to = '/user_agreement' className="underline">Политикой использования файлов cookie</Link>
-        </p>
-        <div className="flex justify-center">
-          <button 
-            onClick={handleAcceptAll} 
-            className="w-64 bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-3xl"
-          >
-            Я согласен
-          </button>
-        </div>*/}
-      </div>
+    </div>
   );
 };
 

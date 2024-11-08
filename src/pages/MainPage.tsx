@@ -26,10 +26,7 @@ const MainPage = () => {
             <Capability></Capability>
             <Contacts></Contacts>
             <Footer></Footer>
-        
-            <div className=''>
-                <CookiePolicyModal></CookiePolicyModal>
-            </div>
+            <CookiePolicyModal></CookiePolicyModal>
         </div>
     )
 }
