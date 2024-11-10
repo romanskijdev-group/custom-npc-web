@@ -8,8 +8,8 @@ export const CookiePolicyModal: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const cookiesBlock = Cookies.get('cookies_block');
-    if (cookiesBlock === undefined) {
+    const cookiesAllowed = Cookies.get('cookies_allowed');
+    if (cookiesAllowed === undefined) {
       setShowModal(true);
     }
   }, []);
