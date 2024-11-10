@@ -62,5 +62,10 @@
   },
   "footer": {
     "copyright": "Copyright 2023"
+  },
+  "cookieModal":{
+    "title": "We employ cookies on our website, including both our own and those belonging to third parties, in order to enhance your experience, conduct traffic analysis, and maintain security and implement marketing strategies. By continuing your use of the site, you consent to ",
+    "hrefTitle" : "the Cookie Policy.",
+    "buttonTitle" : "I agree"
   }
 }
