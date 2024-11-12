@@ -14,7 +14,7 @@ import {PiLightningDuotone} from "react-icons/pi";
 import Cookies from "js-cookie";
 import { CustomThemeSettings } from "../ui/background/CustomThemeSettings.tsx";
 
-export const SideBar = ({children}: { children?: React.ReactNode }) => {
+export const SideBar = () => {
     const selected = useSelector((state: RootState) => state.projects.selectedProject);
     const [isOpen, setOpen] = React.useState(Cookies.get('sideBarOpen') === 'true');
     const { divStyle } = CustomThemeSettings();
