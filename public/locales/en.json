@@ -83,7 +83,15 @@
       "theme": "Theme",
       "language": "Language",
       "upload_avatar": "Upload avatar",
-      "file": "Selected file"
+      "file": "Selected file",
+      "delete": {
+        "buttonTitle": "Delete Profile",
+        "modalTitle": "Are you sure?",
+        "modalDesc": "Are you sure you want to delete your profile? This action cannot be undone.",
+        "accept": "Delete",
+        "refuse": "Cancel"
+      }
+      
     }
   },
   "upload_file": {
@@ -98,4 +106,5 @@
     "hrefTitle" : "the Cookie Policy.",
     "buttonTitle" : "I agree"
   }
+
 }
