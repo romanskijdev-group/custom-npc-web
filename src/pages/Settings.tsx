@@ -15,7 +15,7 @@ import {IoSaveOutline} from "react-icons/io5";
 import {ColorPicker} from "../ui/profile/ColorPicker.tsx";
 import Cookies from 'js-cookie';
 import { CustomThemeSettings } from "../ui/background/CustomThemeSettings.tsx";
-import DeleteConfirmationModal from "../components/modal/deleteConfirmationModal.tsx"
+import DeleteProfileModal from "../components/modal/DeleteProfileModal.tsx"
 import { FaRegTrashAlt } from "react-icons/fa";
 
 
@@ -199,7 +199,7 @@ export const ProfileSettings: React.FC = () => {//const { pStyle, BGStyle, divSt
         <FaRegTrashAlt /> {t('profile.settings.delete.buttonTitle')}
       </button>
     </div>
-        <DeleteConfirmationModal
+        <DeleteProfileModal
             isOpen={isDeleteModalOpen}
             onClose={handleCloseDeleteModal}
             onConfirm={handleConfirmDelete}/>
