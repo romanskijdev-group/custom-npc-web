@@ -13,7 +13,7 @@ import {ThemeChanger} from './general/navbar/ThemeChanger.tsx';
 import {PiLightningDuotone} from "react-icons/pi";
 import Cookies from "js-cookie";
 
-export const SideBar = ({children}: { children?: React.ReactNode }) => {
+export const SideBar = () => {
     const selected = useSelector((state: RootState) => state.projects.selectedProject);
     const [isOpen, setOpen] = React.useState(Cookies.get('sideBarOpen') === 'true');
 
