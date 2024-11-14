@@ -1,5 +1,5 @@
 export interface AuthState {
-    user: any[]
+    user: UserProfileResponseData | null;
     isLoggedIn: boolean;
     loading: boolean;
     error: null | string;

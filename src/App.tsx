@@ -5,6 +5,9 @@ import AOS from 'aos'
 import { useEffect } from 'react'
 import Subscription from './pages/Subscription';
 import UserAgreement from './pages/UserAgreement';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 function App() {
     useEffect(() => {
@@ -14,23 +17,25 @@ function App() {
     })
 
   return (
-      <div>
-          <Routes>
-              <Route index path='/' element={<MainPage/>} />
-              <Route path='/user_agreement' element={<UserAgreement/>} />
-              <Route path="/dashboard" element={<DefaultLayout/>}>
-                  <Route path='/dashboard/login' element={<Auth/>} />
-                  <Route path='/dashboard/home' element={<Home/>} />
-                  <Route path='/dashboard/profile' element={<Profile/>} />
-                  <Route path='/dashboard/quests' element={<QuestPage/>} />
-                  <Route path='/dashboard/dialogs' element={<DialogPage/>} />
-                  <Route path='/dashboard/npc' element={<NpcPage/>} />
-                  <Route path='/dashboard/subscription' element={<Subscription/>} />
-                  <Route path='/dashboard/settings' element={<Settings/>} />
-                  <Route path='*' element={<Error/>} />
-              </Route>
-          </Routes>
-      </div>
+    <QueryClientProvider client={queryClient}>
+        <div>
+            <Routes>
+                <Route index path='/' element={<MainPage />} />
+                <Route path='/user_agreement' element={<UserAgreement />} />
+                <Route path="/dashboard" element={<DefaultLayout />}>
+                    <Route path='/dashboard/login' element={<Auth />} />
+                    <Route path='/dashboard/home' element={<Home />} />
+                    <Route path='/dashboard/profile' element={<Profile />} />
+                    <Route path='/dashboard/quests' element={<QuestPage />} />
+                    <Route path='/dashboard/dialogs' element={<DialogPage />} />
+                    <Route path='/dashboard/npc' element={<NpcPage />} />
+                    <Route path='/dashboard/subscription' element={<Subscription />} />
+                    <Route path='/dashboard/settings' element={<Settings />} />
+                    <Route path='*' element={<Error />} />
+                </Route>
+            </Routes>
+        </div>
+    </QueryClientProvider>
   )
 }
 

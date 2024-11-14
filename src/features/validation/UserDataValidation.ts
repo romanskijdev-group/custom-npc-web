@@ -1,27 +1,27 @@
 import { Data, ValidationResult } from './interface'
 
 export const validateLoginData = (data: Data): ValidationResult => {
-    const { username } = data;
+    const { email } = data;
     const regex = /[!#$%^&*()_+\-=[\]{};':"\\|<>/?]/; //наличие спецсимволов
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!username) {
+    if (!email) {
         return { isValid: false, message: "Email обязателен для заполнения." };
     }
 
-    if (!isNaN(parseInt(username[0]))) {
+    if (!isNaN(parseInt(email[0]))) {
         return { isValid: false, message: "Email не может начинаться с цифры." };
     }
 
-    if (username.includes(' ')) {
+    if (email.includes(' ')) {
         return { isValid: false, message: "Email не может иметь пробелы." };
     }
 
-    if (regex.test(username)) {
+    if (regex.test(email)) {
         return { isValid: false, message: "Email содержит некорректные символы." };
     }
 
-    if (!emailRegex.test(username)) {
+    if (!emailRegex.test(email)) {
         return { isValid: false, message: "Некорректный Email." };
     }
 

@@ -1,5 +1,5 @@
 export interface Data {
-    username: string;
+    email: string;
 }
 
 export interface ValidationResult {
