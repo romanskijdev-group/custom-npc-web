@@ -22,7 +22,7 @@ const Profile = () => {
     const renderActiveComponent = () => {
         switch (activeIndex) {
             case 0:
-                return <ProfileUser name={'Sansara'}/>;
+                return <ProfileUser/>;
             case 1:
                 return <ProfileWallet />;
             case 2:

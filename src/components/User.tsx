@@ -13,7 +13,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { GetUserProfile } from '../features/api/profile.ts';
 import { Skeleton } from '@mui/material';
 
-export const User = ({ name }: { name: string }) => {
+export const User = () => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
   const queryClient = useQueryClient();

@@ -13,7 +13,7 @@ export const UserBlock = ({ className } : { className?: string }) => {
                         <Link className={`bg-gradient-to-br from-yellow-500 via-red-500 to-pink-500 text-white shadow-md px-8 py-2 rounded-lg`} to='/dashboard/login'>Войти</Link>
                     </>
                 ) : (
-                    <User name="Sansara"/>
+                    <User/>
                 )
             }
         </div>
