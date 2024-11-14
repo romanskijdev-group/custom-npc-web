@@ -31,7 +31,7 @@ interface SettingsFormData {
     bio: string;
 }
 
-const profileSettingsHeader = () => { const { pStyle, BGStyle, divStyle } = CustomThemeSettings();
+const profileSettingsHeader = () => { const { pStyle } = CustomThemeSettings();
     const { t } = useTranslation();
 
     return (
