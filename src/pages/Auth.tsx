@@ -7,10 +7,16 @@ import { FaTelegramPlane } from 'react-icons/fa';
 import VKLogin from '../components/general/auth/VkLoginButton.tsx';
 import { useMutation } from '@tanstack/react-query';
 import { SendTemporaryPassword } from '../features/api/auth.ts';
+import CustomTypedAlert from '../ui/alerts/CustomTypedAlert.tsx';
 
 const Auth = () => {
   const [code, setCode] = useState(['', '', '', '', '', '']);
   const [rememberMe, setRememberMe] = useState(true);
+
+  const [alertType, setAlertType] = useState('info');
+  const [alertTitle, setAlertTitle] = useState('');
+  const [alertText, setAlertText] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
 
   const [formData, setFormData] = useState({
     email: ''
@@ -43,12 +49,16 @@ const Auth = () => {
       console.log('Пароль успешно отправлен:', data.data);
     },
     onError: (error: Error) => {
-      console.error('Ошибка отправки пароля:', error);
-    },
+      setShowAlert(true);
+      setAlertType('error');
+      setAlertTitle('Ошибка отправки кода');
+      setAlertText(error.message);
+    }
   });
 
   return (
     <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+      <CustomTypedAlert alertText={alertText} alertTitle={alertTitle} alertType={alertType} isVisible={showAlert} setIsVisible={setShowAlert}></CustomTypedAlert>
       <div
         className="bg-[#F7F7F7] py-12 px-8 w-[400px] rounded-lg border dark:bg-[#1B1C22] dark:border-[#27282D] dark:text-white flex flex-col gap-[30px]">
         <p className="font-semibold text-2xl flex items-center gap-[10px] justify-center">Вход в аккаунт <IoMdLogIn
@@ -91,4 +101,4 @@ const Auth = () => {
   );
 };
 
-export default Auth
+export default Auth;

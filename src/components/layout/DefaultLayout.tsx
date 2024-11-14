@@ -62,10 +62,7 @@ export const DefaultLayout = () => {
 
   return (
     <div className="">
-      {
-        showAlert &&
-        <CustomTypedAlert alertText={alertText} alertTitle={alertTitle} alertType={alertType}></CustomTypedAlert>
-      }
+      <CustomTypedAlert alertText={alertText} alertTitle={alertTitle} alertType={alertType} isVisible={showAlert} setIsVisible={setShowAlert}></CustomTypedAlert>
       <IconBackground
         icons={[BsCompass, BsMap, TbDiamondFilled, LuCoffee, GiSpiderWeb, GiBattleAxe, BsFillStarFill, BiCube]}
         iconSize={24} iconOpacity={0.05} />

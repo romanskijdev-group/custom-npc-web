@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { FaCircleInfo } from 'react-icons/fa6';
 import { MdOutlineReportGmailerrorred } from 'react-icons/md';
 import { IoCloseSharp } from 'react-icons/io5';
@@ -8,6 +8,8 @@ interface AlertProps {
   alertTitle: string;
   alertText: string;
   lifeTime?: number;
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const CustomTypedAlert: React.FC<AlertProps> = (
@@ -15,17 +17,17 @@ const CustomTypedAlert: React.FC<AlertProps> = (
     alertType = 'info',
     alertTitle = 'Title',
     alertText = 'Text',
-    lifeTime = 5
+    lifeTime = 5,
+    isVisible,
+    setIsVisible
   }) => {
-
-  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, lifeTime * 1000);
     return () => clearTimeout(timer);
-  }, [lifeTime]);
+  }, [isVisible]);
 
   return (
     <div className="fixed inset-0 flex items-start justify-center z-[2001] pointer-events-none">
