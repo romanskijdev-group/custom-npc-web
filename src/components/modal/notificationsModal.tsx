@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Notification } from '../notification/notificationBlock';
+import { NotificationBlock } from '../notification/notificationBlock';
 
 interface NotificationItem {
+  id: number;
   title: string;
-  body: React.ReactNode;
+  body: string;
   isRead: boolean;
 }
 
@@ -12,13 +13,9 @@ interface NotificationMenuProps {
 }
 
 export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCountChange }) => {
-  const [notifications, setNotifications] = useState<NotificationItem[]>([
-    { title: "текст", body: <span>дата</span>, isRead: false }, 
-    { title: "текст", body: <span>дата</span>, isRead: false },
-    { title: "текст", body: <span>дата</span>, isRead: false },
-  ]);
+  const [notifications, setNotifications] = useState<NotificationItem[]>([]);
 
-  // Используем useEffect для обновления количества непрочитанных уведомлений при изменении notifications
+  // Обновление количества непрочитанных уведомлений
   useEffect(() => {
     onUnreadCountChange(notifications.filter(notification => !notification.isRead).length);
   }, [notifications, onUnreadCountChange]);
@@ -29,32 +26,37 @@ export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCoun
   };
 
   // Функция для пометки одного уведомления как прочитанного
-  const markAsRead = (index: number) => {
-    setNotifications(notifications.map((notification, i) => i === index ? { ...notification, isRead: true } : notification));
+  const markAsRead = (id: number) => {
+    setNotifications(notifications.map(notification => notification.id === id ? { ...notification, isRead: true } : notification));
   };
 
   return (
     <div className="w-full max-w-md mx-auto border border-gray-300 rounded-lg shadow-lg bg-white animate-slide-in">
       <div className="bg-gray-100 px-4 py-2 border-b border-gray-300 rounded-t-xl">
-        <h2 className="text-xl font-semibold">Уведомления</h2>
-        <div className="rounded-b-xl px-2 py-1 mt-2 border-t-2 flex justify-end">
-          <button 
-            className="w-50 hover:text-blue-700 text-black text-sm font-bold rounded transition duration-300"
-            onClick={markAllAsRead}
-          >
-            Отметить все как прочитанные
-          </button>
+        <div className='flex flex-col'>
+          <div className='flex mt-5'>
+            <h2 className="text-xl font-bold">Уведомления</h2>
+          </div>
+          <div className="rounded-b-xl px-2 py-1 mt-2 border-t-2 flex justify-end">
+            <button 
+              className="w-50 hover:text-blue-700 text-gray-700 text-sm font-semibold rounded transition duration-300"
+              onClick={markAllAsRead}
+            >
+              Отметить все как прочитанные
+            </button>
+          </div>
         </div>
       </div>
       <div className="px-6 py-4 max-h-96 overflow-y-auto">
-        {notifications.map((notification, index) => (
-          <Notification 
-            key={index} 
-            title={notification.title} 
-            body={notification.body} 
-            isRead={notification.isRead} 
-            onClick={() => markAsRead(index)} 
-          />
+        {notifications.map((notification) => (
+          <NotificationBlock 
+            key={notification.id} 
+            title={notification.title}
+            isRead={notification.isRead}
+            onClick={() => markAsRead(notification.id)}
+          >
+            {notification.body}
+          </NotificationBlock>
         ))}
       </div>
     </div>
