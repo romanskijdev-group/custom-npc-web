@@ -1,5 +1,10 @@
 import React from 'react';
 import { Button } from '../ui/buttons/Button';
+import { FaCheckCircle } from 'react-icons/fa';
+import { BannerStandart } from '../ui/banner/bannerStandart';
+import { BannerGold } from '../ui/banner/bannerGold';
+import { BannerPremium } from '../ui/banner/bannerPrem';
+import { useTranslation } from 'react-i18next';
 
 
 interface SubscriptionPlan {
@@ -7,7 +12,10 @@ interface SubscriptionPlan {
   price: number;
   features: string[];
   buttonText: string;
+  bannerComponent?: React.FC;
 }
+const SubscriptionPage: React.FC = () => { 
+  const { t } = useTranslation();
 
 const subscriptionPlans: SubscriptionPlan[] = [
   {
@@ -19,7 +27,8 @@ const subscriptionPlans: SubscriptionPlan[] = [
       'Возможность добавить до 2 участников в команду',
       'Базовая техническая поддержка',
     ],
-    buttonText: 'Начать бесплатно',
+    buttonText: t('Subscriptions.buttonFree'),
+    bannerComponent: BannerStandart,
   },
   {
     title: 'Gold',
@@ -32,7 +41,8 @@ const subscriptionPlans: SubscriptionPlan[] = [
       'Возможность экспорта квестов с большей скоростью',
       'Возможность добавить до 5 участников в свою команду.',
     ],
-    buttonText: 'Подписаться',
+    buttonText: t('Subscriptions.buttonBuy'),
+    bannerComponent: BannerGold,
   },
   {
     title: 'Premium',
@@ -44,58 +54,54 @@ const subscriptionPlans: SubscriptionPlan[] = [
       'Персональные консультации и поддержка от разработчиков с максимально быстрым временем ответа.',
       'Неограниченное количество участников в команде.',
     ],
-    buttonText: 'Подписаться',
+    buttonText: t('Subscriptions.buttonBuy'),
+    bannerComponent: BannerPremium,
   },
 ];
 
-const SubscriptionPage: React.FC = () => {
   return (
-    <div className="bg-white min-h-screen px-4">
+    <div className="bg-transparent min-h-screen px-4">
       <div className="container mx-auto py-16 text-center">
-        <h1 className="text-4xl font-bold mb-8">
-          Разблокируйте весь потенциал вашей команды к созданию квестов!
+        <h1 className="text-4xl font-bold text-gray-800 mb-8">
+          {t('Subscriptions.title')}
         </h1>
 
-        <p className="text-lg mb-12">
-          Преобретите подписку Premium и получите доступ ко всем преимуществам платформы:
+        <p className="text-lg text-gray-600 mb-12">
+          {t('Subscriptions.description')}
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {subscriptionPlans.map((plan) => (
-            <div
-              key={plan.title}
-              className="flex flex-col justify-between bg-gray-64 rounded-lg shadow-md p-6 text-left hover:translate-y-[-7px] transition-transform duration-300"
-            >
-              <div>
-                <h2 className="text-2xl font-bold mb-4">{plan.title}</h2>
-                <p className="text-gray-600 mb-6">
-                  {plan.price === 0 ? 'Standart' : `$${plan.price}/месяц`}
-                </p>
-                <ul className="list-none opacity-75 pl-6 mb-6 push">
-                  {plan.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="relative mb-4 p-4 bg-white"
-                    >
-                      <span
-                        className="absolute mt-1 left-[-0.5rem] w-4 h-4 rounded-full bg-gray-500"
-                      />
-                      <span
-                        className="absolute bottom-[-1rem] left-2 w-1 h-14 border-l-2 border-gray-500"
-                      />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+          {subscriptionPlans.map((plan) => {
+            const Banner = plan.bannerComponent;
+            return (
+              <div
+                key={plan.title}
+                className="relative flex flex-col justify-between bg-white rounded-lg shadow-md p-6 text-left hover:translate-y-[-7px] transition-transform duration-300"
+              >
+                {Banner && <Banner />}
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-4">{plan.title}</h2>
+                  <p className="text-xl font-semibold text-gray-700 mb-6">
+                    {plan.price === 0 ? 'Базовая подписка' : `$${plan.price}/месяц`}
+                  </p>
+                  <ul className="list-none opacity-75 pl-6 mb-6">
+                    {plan.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="relative mb-4 pl-10"
+                      >
+                        <FaCheckCircle className="absolute left-0 top-0 mt-1 text-green-500" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-6">
+                  <Button title={plan.buttonText} className="w-full px-10 py-3 transition transform hover:scale-105 duration-300" />
+                </div>
               </div>
-              <div className="mt-6">
-                <Button
-                  title={plan.buttonText}
-                  className="w-full px-10 py-3"
-                />
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>

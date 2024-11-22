@@ -105,5 +105,15 @@
     "title": "We employ cookies on our website, including both our own and those belonging to third parties, in order to enhance your experience, conduct traffic analysis, and maintain security and implement marketing strategies. By continuing your use of the site, you consent to ",
     "hrefTitle" : "the Cookie Policy.",
     "buttonTitle" : "I agree"
-  }
+  },
+    "Subscriptions": {
+      "title": "Unlock the full potential of your team in creating quests!",
+      "description" : "Purchase a Premium subscription and gain access to all the platform's benefits:",
+      "buttonFree": "Start for free",
+      "buttonBuy": "Subscribe",
+      "bannerStandart" : "Free",
+      "bannerGold": "Best Value",
+      "bannerPrem" : "Best Choice"
+    }
+    
 }
