@@ -1,6 +1,7 @@
 interface ApiResponse<T> {
   success: boolean;
   data: T;
+  total_count: number;
 }
 
 interface GetTempPassData {

@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Skeleton } from '@mui/material';
 import { GetUserProfile } from '../../features/api/profile.ts';
+import { UserAvatar } from '../user/UserAvatar.tsx';
 
 export const ProfileUser = () => {
     const queryClient = useQueryClient();
@@ -47,10 +48,17 @@ export const ProfileUser = () => {
     return (
         <ProfileHeader>
             <div className='flex flex-col gap-[10px] items-center p-6'>
-                <div
-                    className='rounded-full border dark:border-[#27282D] w-[120px] flex items-center justify-center h-[120px] '>
-                    <p className='text-black text-5xl'><CiImageOff className='dark:text-white'/></p>
-                </div>
+                {
+                    userProfile &&
+                    userProfile.avatar_url ? (
+                      <UserAvatar avatar_url={userProfile.avatar_url} nickname={userProfile.nickname} className='w-[120px] h-[120px]'></UserAvatar>
+                    ) : (
+                      <div
+                        className='rounded-full border dark:border-[#27282D] w-[120px] flex items-center justify-center h-[120px] '>
+                          <p className='text-black text-5xl'><CiImageOff className='dark:text-white'/></p>
+                      </div>
+                    )
+                }
                 <p className='text-gray-700 font-semibold text-2xl dark:text-[#8D8E91] z-10'>
                     {
                       userProfile && userProfile.nickname || <Skeleton animation="wave" variant="text" width={120} height={30} />
@@ -96,7 +104,7 @@ export const ProfileUser = () => {
                         }
                     </p>
                 </div>
-                <div className='absolute right-10 border rounded-lg px-4 py-1 bg-gray-700 text-white dark:text-opacity-50 dark:bg-[#202126] dark:border-[#414246]'>Creator</div>
+                <div className='absolute right-4 md:right-10 border rounded-lg px-4 py-1 bg-gray-700 text-white dark:text-opacity-50 dark:bg-[#202126] dark:border-[#414246]'>Creator</div>
             </div>
         </ProfileHeader>
     )

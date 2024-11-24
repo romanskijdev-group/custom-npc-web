@@ -159,7 +159,7 @@ const CodeInput: React.FC<CodeInputProps> = ({ code, setCode, email }) => {
               disabled={mutation.isPending}
               className="bg-gradient-to-br from-yellow-500 via-red-500 to-pink-500 text-white shadow-md px-8 py-2 rounded-lg flex items-center justify-center relative">Подтвердить
         код
-        <CustomLoader style={`${mutation.isPending ? '' : 'hidden'}`} />
+        <CustomLoader style={`${mutation.isPending ? 'absolute right-5' : 'hidden'}`} />
       </button>
     </>
   );

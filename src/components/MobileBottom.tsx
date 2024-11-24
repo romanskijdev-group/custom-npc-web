@@ -33,20 +33,20 @@ export const MobileBottom = () => {
 
     return (
         user.isLoggedIn && (
-            <div className={`fixed flex flex-col bottom-0 w-full py-2 border sm:hidden block bg-[#F7F7F7] text-center transition-transform duration-300 ${isHidden ? 'transform translate-y-full' : 'transform translate-y-0'}`}>
+            <div className={`fixed flex flex-col bottom-0 w-full py-2 border dark:border-[#27282D] bg-white dark:bg-[#202126] sm:hidden text-center transition-transform duration-300 ${isHidden ? 'transform translate-y-full' : 'transform translate-y-0'}`}>
                 { selected ? <p className='border-b pb-2 text-yellow-700 opacity-50'>{selected}</p> : '' }
                 <div className='grid grid-cols-4 pt-2'>
                     <BottomMenuButton title='Главная' link='/dashboard'>
-                        <FaHouse className='text-yellow-700 text-lg'/>
+                        <FaHouse className='text-gray-700 dark:text-white text-lg'/>
                     </BottomMenuButton>
                     <BottomMenuButton title='NPC' link='/dashboard/npc'>
-                        <FaUser className='text-yellow-700 text-lg'/>
+                        <FaUser className='text-gray-700 dark:text-white text-lg'/>
                     </BottomMenuButton>
                     <BottomMenuButton title='Квесты' link='/dashboard/quests'>
-                        <MdCategory className='text-yellow-700 text-lg'/>
+                        <MdCategory className='text-gray-700 dark:text-white text-lg'/>
                     </BottomMenuButton>
                     <BottomMenuButton title='Диалоги' link='/dashboard/dialogs'>
-                        <SiDialogflow className='text-yellow-700 text-lg'/>
+                        <SiDialogflow className='text-gray-700 dark:text-white text-lg'/>
                     </BottomMenuButton>
                 </div>
             </div>

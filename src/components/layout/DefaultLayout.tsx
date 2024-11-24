@@ -56,7 +56,7 @@ export const DefaultLayout = () => {
     if (accessToken != undefined && accessToken != '') {
       mutation.mutate(accessToken);
     } else {
-      navigate('/dashboard/home');
+      navigate('/dashboard/login');
     }
   }, [mutation.mutate]);
 

@@ -6,7 +6,7 @@ interface CustomLoaderProps {
 
 const CustomLoader: React.FC<CustomLoaderProps> = ({ style }: { style?: string }) => {
   return (
-    <div className={`scale-50 absolute right-5 ${style}`}>
+    <div className={`scale-50 ${style}`}>
       <div className={`loader relative`}>
       </div>
     </div>

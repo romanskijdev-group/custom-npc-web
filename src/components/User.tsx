@@ -45,10 +45,13 @@ export const User = () => {
       }}
            className="flex items-center gap-[10px] px-4 py-2 border rounded-lg w-max bg-white dark:bg-[#1B1C22] dark:text-white dark:text-opacity-70 hover:dark:bg-[#2C2D31] transition duration-300 dark:border-[#27282D] bg-opacity-70 cursor-pointer relative">
         {
-          userProfile && <UserAvatar name={userProfile.nickname}></UserAvatar> || <Skeleton animation="wave" variant="circular" width={40} height={40} />
+          userProfile &&
+          <UserAvatar className='h-[40px] w-[40px]' avatar_url={userProfile.avatar_url} nickname={userProfile.nickname}></UserAvatar> ||
+          <Skeleton animation="wave" variant="circular" width={40} height={40} />
         }
         {
-          userProfile && <UserName name={userProfile.nickname}></UserName> || <Skeleton animation="wave" variant="text" width={120} height={30} />
+          userProfile && <UserName name={userProfile.nickname}></UserName> ||
+          <Skeleton animation="wave" variant="text" width={120} height={30} />
         }
         <SlOptionsVertical />
       </div>
