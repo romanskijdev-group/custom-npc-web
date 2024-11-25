@@ -4,6 +4,7 @@ import { FaCode, FaHeart, FaMoneyBillWave, FaReact } from 'react-icons/fa'
 import { HiMiniBugAnt } from 'react-icons/hi2'
 import { FiCoffee } from 'react-icons/fi'
 import { MdOutlineCookie } from 'react-icons/md'
+import { useTranslation } from 'react-i18next'
 
 const ListItem = ( { icon, text } : { icon?:React.ReactNode, text: string } ) => {
     return(
@@ -14,46 +15,47 @@ const ListItem = ( { icon, text } : { icon?:React.ReactNode, text: string } ) =>
 }
 
 export const Contacts: React.FC = () => {
+    const {t} = useTranslation(); 
     return(
         <div id='contacts' className='transition-all duration-300 sm:max-w-screen-xl w-[90%] mx-auto mt-[150px] rounded-lg p-4' data-aos='fade-up'>
-            <h1 className='dark:text-gray-200 text-center text-xl sm:text-3xl'>Связь с нами</h1>
+            <h1 className='dark:text-gray-200 text-center text-xl sm:text-3xl'>{t('contacts.heading.title')}</h1>
             <div className='flex flex-col gap-0'>
                 <ContactItem
                     icon={<FaHeart className="text-red-500" />}
-                    title="Мне понравился ваш продукт! (или сайт)"
+                    title={t('contacts.likeProject.likeTitle')}
                     body={
                         <div>
-                            <p className='mb-2'>Мы рады, что вам понравился наш продукт! QuestHolder создан для того, чтобы объединять творческих людей, которые хотят создавать уникальные квест-линейки для CustomNPC в Minecraft.</p>
-                            <p className='mb-2'>Мы стремимся сделать процесс создания квестов увлекательным и доступным для всех! Если у вас есть вопросы или предложения, не стесняйтесь обращаться к нам. Ваше мнение действительно важно для нас, и мы всегда готовы улучшать наш продукт для вас!</p>
+                            <p className='mb-2'>{t('contacts.likeProject.likeBody.upperText')}</p>
+                            <p className='mb-2'>{t('contacts.likeProject.likeBody.downText')}</p>
                         </div>
                     }
                     mail={true}/>
                 <ContactItem
                     icon={<HiMiniBugAnt />}
-                    title="Хочу сообщить об ошибке"
+                    title={t('contacts.error.errorTitle')}
                     body={
                         <div>
-                            <p className='mb-2'>Нашли визуальную или техническую ошибку при использовании QuestHolder? Сообщите об ошибке письмом на электронную почту и мы обязательно её исправим!</p>
+                            <p className='mb-2'>{t('contacts.error.errorBody')}</p>
                         </div>
                     }
                     mail={true}/>
                 <ContactItem
                     icon={<FaMoneyBillWave className="text-green-500" />}
-                    title="Хочу быть спонсором"
+                    title={t('contacts.sponsor.sponsorTitle')}
                     body={
                         <div>
-                            <p className='mb-2'>Поддержите наш проект и станьте спонсором!</p>
-                            <p className='mb-2'>QuestHolder позволяет пользователям совместно создавать увлекательные квест-линейки. Благодаря вашей поддержке мы можем продолжать предоставлять этот уникальный и инновационный продукт для творческого сообщества Minecraft.</p>
-                            <p className='mb-2'>Станьте частью нашего видения и помогите нам сделать сервера Minecraft ещё более захватывающим и увлекательным!</p>
+                            <p className='mb-2'>{t('contacts.sponsor.sponsorBody.sponsorUpper')}</p>
+                            <p className='mb-2'>{t('contacts.sponsor.sponsorBody.sponsorMiddle')}</p>
+                            <p className='mb-2'>{t('contacts.sponsor.sponsorBody.sponsorDown')}</p>
                         </div>
                     }
                     mail={true}/>
                 <ContactItem
                     icon={<FaCode className="text-violet-300" />}
-                    title="С помощью чего разработан проект?"
+                    title= {t('contacts.technologies.techTitle')}
                     body={
                         <div className='p-2'>
-                            <p>Проект QuestHolder разработан с использованием следующих инструментальных средств:</p>
+                            <p>{t('contacts.technologies.techBody')}</p>
                             <div className='grid grid-cols-3 gap-1 py-2'>
                                 <ul>
                                     <p>Frontend:</p>
