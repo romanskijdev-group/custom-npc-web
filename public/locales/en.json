@@ -37,6 +37,36 @@
       "body": "Invite friends and colleagues to the created projects to lead the development side-by-side."
     }
   },
+    "contacts": {
+      "heading": {
+        "title": "Contact Us"
+      },
+      "error": {
+        "errorTitle": "I want to report an error",
+        "errorBody": "Found a visual or technical error while using QuestHolder? Report the error via email and we will definitely fix it!"
+      },
+      "likeProject": {
+        "likeTitle": "I liked your product! (or website)",
+          "likeBody": {
+            "upperText": "We are glad that you liked our product! QuestHolder is designed to bring together creative people who want to create unique quest lines for CustomNPC in Minecraft.",
+            "downText": "We strive to make the quest creation process fun and accessible for everyone! If you have any questions or suggestions, feel free to contact us. Your opinion truly matters to us, and we are always ready to improve our product for you!"
+            }
+        },
+      "sponsor": {
+        "sponsorTitle": "I want to be a sponsor",
+        "sponsorBody": {
+          "sponsorUpper": "Support our project and become a sponsor!",
+          "sponsorMiddle": "QuestHolder allows users to collaboratively create engaging quest lines. Thanks to your support, we can continue to provide this unique and innovative product for the Minecraft creative community.",
+          "sponsorDown": "Become part of our vision and help us make Minecraft servers even more exciting and engaging!"
+          }
+        },
+      "technologies": {
+          "techTitle": "What technologies were used to develop the project?",
+          "techBody": "The QuestHolder project was developed using the following tools:"
+          }
+      },
+
+    
   "profile": {
     "user": {
       "title": "My profile"
@@ -53,7 +83,15 @@
       "theme": "Theme",
       "language": "Language",
       "upload_avatar": "Upload avatar",
-      "file": "Selected file"
+      "file": "Selected file",
+      "delete": {
+        "buttonTitle": "Delete Profile",
+        "modalTitle": "Are you sure?",
+        "modalDesc": "Are you sure you want to delete your profile? This action cannot be undone.",
+        "accept": "Delete",
+        "refuse": "Cancel"
+      }
+      
     }
   },
   "upload_file": {
@@ -62,5 +100,20 @@
   },
   "footer": {
     "copyright": "Copyright 2023"
-  }
+  },
+  "cookieModal":{
+    "title": "We employ cookies on our website, including both our own and those belonging to third parties, in order to enhance your experience, conduct traffic analysis, and maintain security and implement marketing strategies. By continuing your use of the site, you consent to ",
+    "hrefTitle" : "the Cookie Policy.",
+    "buttonTitle" : "I agree"
+  },
+    "Subscriptions": {
+      "title": "Unlock the full potential of your team in creating quests!",
+      "description" : "Purchase a Premium subscription and gain access to all the platform's benefits:",
+      "buttonFree": "Start for free",
+      "buttonBuy": "Subscribe",
+      "bannerStandart" : "Free",
+      "bannerGold": "Best Value",
+      "bannerPrem" : "Best Choice"
+    }
+    
 }

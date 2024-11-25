@@ -14,6 +14,10 @@ import Toggle from "../ui/input/Toggle.tsx";
 import {IoSaveOutline} from "react-icons/io5";
 import {ColorPicker} from "../ui/profile/ColorPicker.tsx";
 import Cookies from 'js-cookie';
+import { CustomThemeSettings } from "../ui/background/CustomThemeSettings.tsx";
+import DeleteProfileModal from "../components/modal/DeleteProfileModal.tsx"
+import { FaRegTrashAlt } from "react-icons/fa";
+
 
 interface SettingsFormData {
     nickname: string;
@@ -27,7 +31,7 @@ interface SettingsFormData {
     bio: string;
 }
 
-const profileSettingsHeader = () => {
+const profileSettingsHeader = () => { const { pStyle } = CustomThemeSettings();
     const { t } = useTranslation();
 
     return (
@@ -37,14 +41,14 @@ const profileSettingsHeader = () => {
                        style={{transform: 'translate(-25%, 25%)'}}/>
                 <div className='text-center flex flex-col gap-3'>
                     <p className='text-gray-700 dark:text-[#8D8E91] font-semibold text-2xl z-10'>{t('profile.settings.title')} </p>
-                    <p className='text-gray-700 font-light opacity-50 text-sm w-2/3 mx-auto z-10 dark:text-white'>{t('profile.settings.subtitle')}</p>
+                    <p className='text-gray-700 font-light opacity-75 text-sm w-2/3 mx-auto z-10 dark:text-white' style={pStyle}>{t('profile.settings.subtitle')}</p>
                 </div>
             </div>
         </ProfileHeader>
     )
 }
 
-export const ProfileSettings = () => {
+export const ProfileSettings: React.FC = () => {//const { pStyle, BGStyle, divStyle } = CustomThemeSettings();
     const { t } = useTranslation();
 
     const [isModalOpen, setModalOpen] = useState(false);
@@ -87,6 +91,18 @@ export const ProfileSettings = () => {
         setToggleChecked(e.target.checked);
     };
 
+    const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+    const handleDeleteClick = () => {
+      setDeleteModalOpen(true);
+    };
+    const handleCloseDeleteModal = () => {
+      setDeleteModalOpen(false);
+    };
+    const handleConfirmDelete = () => {
+      // Удали пользователя пж
+      setDeleteModalOpen(false);
+    };
+    
     return (
       <>
           {profileSettingsHeader()}
@@ -98,13 +114,14 @@ export const ProfileSettings = () => {
                   </p>
                   <ThemeChanger style='dark:bg-[#1B1C22] dark:border-[#27282D]'></ThemeChanger>
               </div>
-              <div className='flex flex-col gap-3'>
-                  <p className='text-gray-700 font-light opacity-50 text-sm w-2/3 z-10 dark:text-white'>
+              <div className='flex flex-col gap-3'> 
+                  <p className='text-gray-700 font-light opacity-50 text-sm w-2/3 z-10 dark:text-white'> 
                       {t('profile.settings.language')}:
                   </p>
                   <SelectLanguage />
               </div>
           </div>
+          
           <div
             className="col-start-2 row-start-3 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full items-start">
               <p className="text-gray-700 font-bold opacity-50 text-lg w-2/3 z-10 dark:text-yellow-300">
@@ -123,6 +140,7 @@ export const ProfileSettings = () => {
               Сбросить
             </button>
           </div>
+
           <div className="col-start-2 row-start-4 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full">
               <Stepper></Stepper>
           </div>
@@ -165,13 +183,26 @@ export const ProfileSettings = () => {
                 label="Получать уведомления"
               />
           </div>
-          <div
-            className='col-start-2 row-start-8 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full items-end'>
-              <button onClick={clearFile}
-                      className="p-2 bg-green-500 w-max text-white dark:bg-green-700 rounded flex gap-3 items-center justify-center">
-                  <IoSaveOutline /> Сохранить
-              </button>
-          </div>
+    <div className='col-start-2 row-start-8 col-span-2 p-2 relative flex flex-col gap-3 w-full items-end'>
+      <button 
+        onClick={clearFile}
+        className="w-36 h-10 bg-green-500 text-white dark:bg-green-700 rounded-lg flex gap-3 items-center justify-center"
+      >
+        <IoSaveOutline /> Сохранить
+      </button>
+    </div>
+    <div className="col-start-2 row-start-8 col-span-2 p-2 relative flex flex-col gap-3 w-full items-start">
+      <button 
+        className="w-48 h-10 bg-red-500 text-white dark:bg-green-700 rounded-lg flex gap-3 items-center justify-center" 
+        onClick={handleDeleteClick}
+      >
+        <FaRegTrashAlt /> {t('profile.settings.delete.buttonTitle')}
+      </button>
+    </div>
+        <DeleteProfileModal
+            isOpen={isDeleteModalOpen}
+            onClose={handleCloseDeleteModal}
+            onConfirm={handleConfirmDelete}/>
       </>
 
     );
