@@ -15,23 +15,20 @@ interface NotificationMenuProps {
 export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCountChange }) => {
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
 
-  // Обновление количества непрочитанных уведомлений
   useEffect(() => {
     onUnreadCountChange(notifications.filter(notification => !notification.isRead).length);
   }, [notifications, onUnreadCountChange]);
 
-  // Функция для пометки всех уведомлений как прочитанных
   const markAllAsRead = () => {
     setNotifications(notifications.map(notification => ({ ...notification, isRead: true })));
   };
 
-  // Функция для пометки одного уведомления как прочитанного
   const markAsRead = (id: number) => {
     setNotifications(notifications.map(notification => notification.id === id ? { ...notification, isRead: true } : notification));
   };
 
   return (
-    <div className="w-full max-w-md mx-auto border border-gray-300 rounded-lg shadow-lg bg-white animate-slide-in">
+    <div className="fixed top-[85px] right-[50px] w-full max-w-md border border-gray-300 rounded-lg shadow-lg bg-white z-[1000] animate-slide-in">
       <div className="bg-gray-100 px-4 py-2 border-b border-gray-300 rounded-t-xl">
         <div className='flex flex-col'>
           <div className='flex mt-5'>
