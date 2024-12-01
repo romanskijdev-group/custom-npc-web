@@ -12,12 +12,10 @@ import {AiFillCodeSandboxCircle} from "react-icons/ai";
 import {ThemeChanger} from './general/navbar/ThemeChanger.tsx';
 import {PiLightningDuotone} from "react-icons/pi";
 import Cookies from "js-cookie";
-import { CustomThemeSettings } from "../ui/background/CustomThemeSettings.tsx";
 
 export const SideBar = () => {
     const selected = useSelector((state: RootState) => state.projects.selectedProject);
     const [isOpen, setOpen] = React.useState(Cookies.get('sideBarOpen') === 'true');
-    const { divStyle } = CustomThemeSettings();
 
 
     useEffect(() => {
@@ -26,7 +24,7 @@ export const SideBar = () => {
 
     return (
         <div
-            className={`sm:flex flex-col gap-5 overflow-y-hidden dark:bg-[#1B1C22] hidden h-screen fixed rounded-lg top-[20px] md:left-[20px] flex-nowrap overflow-hidden shadow-xl bg-white bg-opacity-70 ${isOpen ? 'w-64 px-6' : 'w-16 px-1'} z-10 py-4 transition-all duration-300`} style={divStyle}>
+            className={`sm:flex flex-col gap-5 overflow-y-hidden dark:bg-[#1B1C22] hidden h-screen fixed rounded-lg top-[20px] md:left-[20px] flex-nowrap overflow-hidden shadow-xl bg-white bg-opacity-70 ${isOpen ? 'w-64 px-6' : 'w-16 px-1'} z-10 py-4 transition-all duration-300`}>
             <div className={`w-full flex ${isOpen ? 'justify-end' : 'justify-center'}`}>
                 <IoIosArrowDropleft
                     onClick={() => {
