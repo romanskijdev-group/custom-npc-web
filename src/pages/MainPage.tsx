@@ -10,7 +10,7 @@ import {CookiePolicyModal} from '../components/modal/CookieModal.tsx'
 
 const MainPage = () => {
     return(
-        <div className='pt-5'>
+        <div className='pt-5 overflow-x-hidden'>
             <div className='background bg-white dark:bg-[#14151B]'>
                 <span className='-z-1'></span>
                 <span className='-z-1'></span>

@@ -25,12 +25,17 @@ export const CookiePolicyModal: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 z-50 bg-opacity-75">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <p className="mb-4 md:mb-0 text-sm text-center md:text-left">{t('cookieModal.title')}<Link to='/user_agreement' className="underline">{t('cookieModal.hrefTitle')}</Link></p>
-        <div className="flex justify-center md:justify-end text-sm">
+      <div className="max-w-full mx-auto flex flex-col md:flex-row justify-between items-center px-4 overflow-hidden">
+        <p className="mb-4 md:mb-0 text-sm text-center md:text-left w-full md:w-auto">
+          {t('cookieModal.title')}
+          <Link to='/user_agreement' className="underline ml-1">
+            {t('cookieModal.hrefTitle')}
+          </Link>
+        </p>
+        <div className="flex flex-col md:flex-row justify-center md:justify-end text-sm mt-4 md:mt-0 w-full md:w-auto">
           <button 
             onClick={handleAcceptAll} 
-            className="w-48 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-3xl mr-4"
+            className="w-full md:w-48 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-3xl"
           >
             {t('cookieModal.buttonTitle')}
           </button>
