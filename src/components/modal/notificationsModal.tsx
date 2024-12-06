@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NotificationBlock } from '../notification/notificationBlock';
 
 interface NotificationItem {
@@ -10,10 +10,34 @@ interface NotificationItem {
 
 interface NotificationMenuProps {
   onUnreadCountChange: (count: number) => void;
+  onClose: () => void;
 }
 
-export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCountChange }) => {
+export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCountChange, onClose }) => {
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
 
   useEffect(() => {
     onUnreadCountChange(notifications.filter(notification => !notification.isRead).length);
@@ -28,7 +52,7 @@ export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCoun
   };
 
   return (
-    <div className="fixed top-[85px] right-[50px] w-full max-w-md border border-gray-300 rounded-lg shadow-lg bg-white z-[1000] animate-slide-in">
+    <div ref={menuRef} className="fixed top-[85px] right-[50px] w-full max-w-md border border-gray-300 rounded-lg shadow-lg bg-white z-[1000] animate-slide-in">
       <div className="bg-gray-100 px-4 py-2 border-b border-gray-300 rounded-t-xl">
         <div className='flex flex-col'>
           <div className='flex mt-5'>
