@@ -10,7 +10,6 @@ import Stepper from "../ui/profile/Stepper.tsx";
 import SettingsForm from "../ui/profile/SettingsForm.tsx";
 import Toggle from "../ui/input/Toggle.tsx";
 import { IoSaveOutline } from "react-icons/io5";
-import Cookies from 'js-cookie';
 import DeleteProfileModal from "../components/modal/DeleteProfileModal.tsx";
 import { FaRegTrashAlt } from "react-icons/fa";
 
