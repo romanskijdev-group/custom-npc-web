@@ -17,7 +17,7 @@ const IconBackground: React.FC<IconBackgroundProps> = ({
   }
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-white dark:bg-[#14151B]">
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-white dark:bg-[#14151A]">
       <div className="grid grid-cols-12 grid-rows-12 gap-0 h-full w-full">
         {Array.from({ length: 12 * 12 }).map((_, index) => (
           <div

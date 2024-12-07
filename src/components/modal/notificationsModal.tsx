@@ -52,15 +52,15 @@ export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCoun
   };
 
   return (
-    <div ref={menuRef} className="fixed top-[85px] right-[50px] w-full max-w-md border border-gray-300 rounded-lg shadow-lg bg-white z-[1000] animate-slide-in">
-      <div className="bg-gray-100 px-4 py-2 border-b border-gray-300 rounded-t-xl">
+    <div ref={menuRef} className="fixed top-[85px] right-[50px] rounded-xs w-full max-w-md border-4 dark:border-gray-800 rounded-lg shadow-lg bg-white dark:bg-[#141414] text-black dark:text-gray-100 z-[1000] animate-slide-in">
+      <div className="px-4 py-2 border-b bg-gray-100 dark:bg-[#1E1E1E] border-gray-300 dark:border-gray-500">
         <div className='flex flex-col'>
           <div className='flex mt-5'>
-            <h2 className="text-xl font-bold">Уведомления</h2>
+            <h2 className="text-xl font-bold text-black dark:text-gray-100">Уведомления</h2>
           </div>
           <div className="rounded-b-xl px-2 py-1 mt-2 border-t-2 flex justify-end">
             <button 
-              className="w-50 hover:text-blue-700 text-gray-700 text-sm font-semibold rounded transition duration-300"
+              className="w-50 hover:text-blue-700 text-gray-700 dark:text-gray-300 text-sm font-semibold rounded transition duration-300"
               onClick={markAllAsRead}
             >
               Отметить все как прочитанные
@@ -68,7 +68,7 @@ export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCoun
           </div>
         </div>
       </div>
-      <div className="px-6 py-4 max-h-96 overflow-y-auto">
+      <div className="px-6 py-4 max-h-96 overflow-y-auto bg-white dark:bg-[#141414]">
         {notifications.map((notification) => (
           <NotificationBlock 
             key={notification.id} 
