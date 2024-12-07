@@ -15,13 +15,13 @@ export const CookiePolicyModal: React.FC = () => {
   }, []);
 
   const handleAcceptAll = () => {
-    Cookies.set('cookies_block', 'true');
+    Cookies.set('cookies_allowed', 'true');
     setShowModal(false);
   };
 
   if (!showModal) {
     return null;
-  } // Я заменю этот иф на что-то другое, когда узнаю, чё надо сделать, не трогай, пусть этот "условный мусор" останется 
+  }
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 z-50 bg-opacity-75">
