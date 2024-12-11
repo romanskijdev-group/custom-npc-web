@@ -1,23 +1,17 @@
-import {ProfileHeader} from "../ui/profile/ProfileHeader.tsx";
-
-import {FaCog, FaTrashAlt} from 'react-icons/fa';
-import {LuUpload} from "react-icons/lu";
-import {CgProfile} from "react-icons/cg";
-import React, {useState} from "react";
+import { ProfileHeader } from "../ui/profile/ProfileHeader.tsx";
+import { FaCog, FaTrashAlt } from 'react-icons/fa';
+import { LuUpload } from "react-icons/lu";
+import { CgProfile } from "react-icons/cg";
+import React, { useState } from "react";
 import UploadModal from "../ui/modal/UploadFile.tsx";
-import {ThemeChanger} from "../components/general/navbar/ThemeChanger.tsx";
-import {SelectLanguage} from "../components/general/navbar/SelectLanguage.tsx";
-import {useTranslation} from "react-i18next";
+import { SelectLanguage } from "../components/general/navbar/SelectLanguage.tsx";
+import { useTranslation } from "react-i18next";
 import Stepper from "../ui/profile/Stepper.tsx";
 import SettingsForm from "../ui/profile/SettingsForm.tsx";
 import Toggle from "../ui/input/Toggle.tsx";
-import {IoSaveOutline} from "react-icons/io5";
-import {ColorPicker} from "../ui/profile/ColorPicker.tsx";
-import Cookies from 'js-cookie';
-import { CustomThemeSettings } from "../ui/background/CustomThemeSettings.tsx";
-import DeleteProfileModal from "../components/modal/DeleteProfileModal.tsx"
+import { IoSaveOutline } from "react-icons/io5";
+import DeleteProfileModal from "../components/modal/DeleteProfileModal.tsx";
 import { FaRegTrashAlt } from "react-icons/fa";
-
 
 interface SettingsFormData {
     nickname: string;
@@ -31,24 +25,24 @@ interface SettingsFormData {
     bio: string;
 }
 
-const profileSettingsHeader = () => { const { pStyle } = CustomThemeSettings();
+const profileSettingsHeader = () => {
     const { t } = useTranslation();
 
     return (
         <ProfileHeader>
             <div className='relative flex justify-center items-center w-full h-full overflow-hidden'>
                 <FaCog className='absolute inset-0 w-full h-full opacity-10 text-red-500'
-                       style={{transform: 'translate(-25%, 25%)'}}/>
+                       style={{ transform: 'translate(-25%, 25%)' }} />
                 <div className='text-center flex flex-col gap-3'>
                     <p className='text-gray-700 dark:text-[#8D8E91] font-semibold text-2xl z-10'>{t('profile.settings.title')} </p>
-                    <p className='text-gray-700 font-light opacity-75 text-sm w-2/3 mx-auto z-10 dark:text-white' style={pStyle}>{t('profile.settings.subtitle')}</p>
+                    <p className='text-gray-700 font-light opacity-75 text-sm w-2/3 mx-auto z-10 dark:text-white'>{t('profile.settings.subtitle')}</p>
                 </div>
             </div>
         </ProfileHeader>
     )
 }
 
-export const ProfileSettings: React.FC = () => {//const { pStyle, BGStyle, divStyle } = CustomThemeSettings();
+export const ProfileSettings: React.FC = () => {
     const { t } = useTranslation();
 
     const [isModalOpen, setModalOpen] = useState(false);
@@ -93,54 +87,29 @@ export const ProfileSettings: React.FC = () => {//const { pStyle, BGStyle, divSt
 
     const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
     const handleDeleteClick = () => {
-      setDeleteModalOpen(true);
+        setDeleteModalOpen(true);
     };
     const handleCloseDeleteModal = () => {
-      setDeleteModalOpen(false);
+        setDeleteModalOpen(false);
     };
     const handleConfirmDelete = () => {
-      // Удали пользователя пж
-      setDeleteModalOpen(false);
+        // Удали пользователя пж
+        setDeleteModalOpen(false);
     };
-    
+
     return (
       <>
-          {profileSettingsHeader()}
-          <div
-            className='col-start-2 row-start-2 col-span-2 p-2 w-128 rounded-lg relative flex place-content-between gap-8'>
-              <div className='flex flex-col gap-3 w-max'>
-                  <p className='text-gray-700 font-light opacity-50 text-sm w-2/3 z-10 dark:text-white'>
-                      {t('profile.settings.theme')}:
-                  </p>
-                  <ThemeChanger style='dark:bg-[#1B1C22] dark:border-[#27282D]'></ThemeChanger>
-              </div>
-              <div className='flex flex-col gap-3'> 
-                  <p className='text-gray-700 font-light opacity-50 text-sm w-2/3 z-10 dark:text-white'> 
-                      {t('profile.settings.language')}:
-                  </p>
-                  <SelectLanguage />
-              </div>
+        {profileSettingsHeader()}
+        <div
+          className='col-start-2 row-start-2 col-span-2 p-2 w-128 rounded-lg relative flex place-content-between gap-8'>
+          <div className='flex flex-col gap-3 w-max'>
+            <p className='text-gray-700 font-light opacity-50 text-sm w-2/3 z-10 dark:text-white'>
+              {t('profile.settings.language')}:
+            </p>
+            <SelectLanguage />
           </div>
+        </div>
           
-          <div
-            className="col-start-2 row-start-3 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full items-start">
-              <p className="text-gray-700 font-bold opacity-50 text-lg w-2/3 z-10 dark:text-yellow-300">
-                 Создание собственной цветовой схемы
-              </p>
-              <div className='flex gap-5'>
-                  <ColorPicker title={'Цвет текста'} colorKey="textColor"></ColorPicker>
-                  <ColorPicker title={'Цвет фона'} colorKey="bgColor"></ColorPicker>
-                  <ColorPicker title={'Цвет акцентов'} colorKey="accentColor"></ColorPicker>
-              </div>
-            <button className='bg-green-700 text-white p-2 rounded-lg' onClick={() => {
-              Cookies.set('textColor', '')
-              Cookies.set('bgColor', '')
-              Cookies.set('accentColor', '')
-            }}>
-              Сбросить
-            </button>
-          </div>
-
           <div className="col-start-2 row-start-4 col-span-2 p-2 rounded-lg relative flex flex-col gap-3 w-full">
               <Stepper></Stepper>
           </div>
