@@ -65,7 +65,6 @@
           "techBody": "The QuestHolder project was developed using the following tools:"
           }
       },
-
     
   "profile": {
     "user": {
@@ -114,6 +113,19 @@
       "bannerStandart" : "Free",
       "bannerGold": "Best Value",
       "bannerPrem" : "Best Choice"
+    },
+      "about": {
+        "title": "About the Project",
+        "description": "QuestHolder is an innovative platform for creating quests for Minecraft, allowing you to craft exciting and immersive stories using CustomNPC. With our platform, you can bring your wildest ideas to life and share them with the community.",
+        "feature1": "Create unique characters with charismatic dialogues and branching storylines. Our editor allows you to do this without any programming skills.",
+        "feature2": "Implement the most incredible ideas, from intricate plots to epic adventures. With QuestHolder, you can create a world full of captivating stories and characters.",
+        "feature3": "Collaborate with friends to create quests and share your creations with the community. Interact with other users, exchange ideas, and improve your projects.",
+        "offer_title": "What We Offer:",
+        "offer1": "An intuitive editor for creating dialogues and quests without programming skills. Our platform makes the creation process simple and convenient for everyone.",
+        "offer2": "Easy import and export of quests for sharing with other users. You can quickly share your quests and use others for inspiration.",
+        "offer3": "An active and friendly community ready to provide advice and support. Join discussions, ask questions, and share your experience.",
+        "call_to_action": "Join QuestHolder and start creating your own Minecraft quests today! Register to become part of the creative creators community and dive into a world of captivating stories and adventures."
     }
+    
     
 }

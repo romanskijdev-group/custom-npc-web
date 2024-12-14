@@ -1,24 +1,54 @@
-export const About = () => {
-    return(
-        <div id='about' className='flex flex-col gap-[8px] sm:max-w-screen-xl w-[90%] mx-auto mt-[150px] rounded-xl bg-white border border-gray-200 dark:bg-[#1B1C22] dark:border-[#27282D] p-4' data-aos='fade-up'>
-                <h1 className='text-2xl font-medium text-gray-800 transition group-hover:text-purple-950 dark:text-white text-center '>Что это за проект?</h1>
-                <div className='flex flex-col gap-[8px] dark:text-gray-300 text-gray-700'>
-                    <h2> Устали от скучных NPC на серверах Minecraft? Создайте свой мир, полный приключений!</h2>
-                    <p>Добро пожаловать на QuestHolder — платформу для совместного создания увлекательных квестов для CustomNPC в Minecraft!</p>
-                    <p>👑Превращайте бездушных болванчиков в харизматичных героев.
-                    Добавляте им уникальные диалоги, прописывайте ветвящиеся сюжетные линии и создавайте свой уникальный сюжет.</p>
-                    <p>🚀 Воплощайте в жизнь все самые невероятные идеи!
-                    От запутанных сюжетов до эпических похождений — на QuestHolder имеются все нужные инструменты для создания неповторимого игрового опыта.</p>
-                    <p>🤝 Творите вместе с друзьями!
-                    Приглашайте единомышленников, работайте над квестами совместно с командой и делитесь своими творениями с сообществом!</p>
+import React from 'react';
+import { FaCrown, FaRocket, FaHandsHelping, FaKeyboard, FaExchangeAlt, FaUsers } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
-                    <p>QuestHolder предлагает Вам:</p>
-                    <p>Удобный визуальный редактор для создания диалогов и квестов без необходимости программирования.</p>
-                    <p>Возможность импорта и экспорта квестов для легкого обмена с другими пользователями.</p>
-                    <p>Активное и дружелюбное сообщество, готовое помочь советом и поделиться опытом.</p>
-                    <p>Превратите свой Minecraft сервер в мир захватывающих дух историй! Зарегистрируйтесь на QuestHolder и начните создавать свои квесты уже сегодня!</p>
-            </div>
+export const About = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div id='about' className='relative -top-[15px] flex flex-col gap-6 sm:max-w-screen-lg w-[90%] mx-auto mt-[120px] rounded-xl bg-white bg-opacity-5 border border-gray-200 dark:border-[#27282D] p-8' data-aos='fade-up'>
+      <h1 className='text-2xl font-bold text-gray-800 transition dark:text-white text-center mb-6'>
+        {t('about.title')}
+      </h1>
+      <div className='flex flex-col gap-6 dark:text-gray-300 text-gray-700 text-base'>
+        <p>{t('about.description')}</p>
+
+        <div className='flex items-start gap-4'>
+          <FaCrown className='text-yellow-400' size={20} />
+          <p>{t('about.feature1')}</p>
         </div>
 
-    )
+        <div className='flex items-start gap-4'>
+          <FaRocket className='text-red-400' size={20} />
+          <p>{t('about.feature2')}</p>
+        </div>
+        
+        <div className='flex items-start gap-4'>
+          <FaHandsHelping className='text-green-400' size={20} />
+          <p>{t('about.feature3')}</p>
+        </div>
+
+        <h2 className='text-lg font-semibold'>{t('about.offer_title')}</h2>
+        
+        <div className='flex items-start gap-4'>
+          <FaKeyboard className='text-blue-400' size={20} />
+          <p>{t('about.offer1')}</p>
+        </div>
+
+        <div className='flex items-start gap-4'>
+          <FaExchangeAlt className='text-purple-400' size={20} />
+          <p>{t('about.offer2')}</p>
+        </div>
+        
+        <div className='flex items-start gap-4'>
+          <FaUsers className='text-pink-400' size={20} />
+          <p>{t('about.offer3')}</p>
+        </div>
+        
+        <p>{t('about.call_to_action')}</p>
+      </div>
+    </div>
+  );
 }
+
+export default About;
