@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaCrown, FaRocket, FaHandsHelping, FaKeyboard, FaExchangeAlt, FaUsers } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
