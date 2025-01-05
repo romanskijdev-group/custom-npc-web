@@ -5,7 +5,7 @@ import AOS from 'aos';
 import { useEffect } from 'react';
 import Subscription from './pages/Subscription';
 import UserAgreement from './pages/UserAgreement';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import UserProfile from './pages/UserProfile.tsx';
 
 const queryClient = new QueryClient();
