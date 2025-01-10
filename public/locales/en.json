@@ -105,15 +105,50 @@
     "hrefTitle" : "the Cookie Policy.",
     "buttonTitle" : "I agree"
   },
-    "Subscriptions": {
-      "title": "Unlock the full potential of your team in creating quests!",
-      "description" : "Purchase a Premium subscription and gain access to all the platform's benefits:",
-      "buttonFree": "Start for free",
-      "buttonBuy": "Subscribe",
-      "bannerStandart" : "Free",
-      "bannerGold": "Best Value",
-      "bannerPrem" : "Best Choice"
-    },
+      "PurchaseModal": {
+        "title": "Purchase Subscription",
+        "cardNumber": "Card Number",
+        "cardNumberPlaceholder": "Enter your card number",
+        "expirationDate": "Expiration Date",
+        "expirationDatePlaceholder": "MM/YY",
+        "cvc": "CVC",
+        "cvcPlaceholder": "CVC",
+        "currency": "Currency",
+        "pay": "Pay"
+      },
+      "Subscriptions": {
+        "title": "Unlock the full potential of your team in creating quests!",
+        "description": "Purchase a Premium subscription and gain access to all the platform's benefits:",
+        "buttonFree": "Start for free",
+        "buttonBuy": "Subscribe",
+        "bannerStandart": "Free",
+        "bannerGold": "Best Value",
+        "bannerPrem": "Best Choice",
+        "priceFree": "Free Subscription",
+        "features": {
+          "creator": {
+            "feature1": "Create simple quests with a limited number of steps.",
+            "feature2": "Create a limited number of quests and characters.",
+            "feature3": "Add up to 2 team members.",
+            "feature4": "Basic technical support."
+          },
+          "gold": {
+            "feature1": "Create more complex quests with a larger number of steps and conditions.",
+            "feature2": "Ability to create quests with more complex dialogues, including branching.",
+            "feature3": "Create 10 characters.",
+            "feature4": "Priority support.",
+            "feature5": "Export quests at a higher speed.",
+            "feature6": "Add up to 5 team members."
+          },
+          "premium": {
+            "feature1": "Create quests without restrictions on complexity, number of steps, and conditions.",
+            "feature2": "Access exclusive platform content.",
+            "feature3": "Export quests in various formats without limitations.",
+            "feature4": "Personal consultations and support from developers with the fastest response time.",
+            "feature5": "Unlimited team members."
+          }
+        }
+      },  
       "about": {
         "title": "About the Project",
         "description": "QuestHolder is an innovative platform for creating quests for Minecraft, allowing you to craft exciting and immersive stories using CustomNPC. With our platform, you can bring your wildest ideas to life and share them with the community.",
