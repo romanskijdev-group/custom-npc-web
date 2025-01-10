@@ -112,7 +112,7 @@ const SettingsModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isO
             </div>
           )}
         </div>
-        <div className="flex justify-end gap-4 p-4 border-t border-gray-200 dark:border-gray-700 mb-2"> {/* Уменьшенное пространство */}
+        <div className="flex justify-end gap-4 p-4 border-t border-gray-200 dark:border-gray-700 mb-2">
           <button onClick={handleSave} className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Сохранить</button>
         </div>
       </div>
