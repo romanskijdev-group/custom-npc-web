@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../ui/buttons/Button';
 import { FaCheckCircle } from 'react-icons/fa';
 import { BannerStandart } from '../ui/banner/bannerStandart';
 import { BannerGold } from '../ui/banner/bannerGold';
 import { BannerPremium } from '../ui/banner/bannerPrem';
 import { useTranslation } from 'react-i18next';
-
+import PurchaseModal from '../components/modal/PurchaseModal';
 
 interface SubscriptionPlan {
   title: string;
@@ -14,59 +14,67 @@ interface SubscriptionPlan {
   buttonText: string;
   bannerComponent?: React.FC;
 }
-const SubscriptionPage: React.FC = () => { 
-  const { t } = useTranslation();
 
-const subscriptionPlans: SubscriptionPlan[] = [
-  {
-    title: 'Standart',
-    price: 0,
-    features: [
-      'Создание простых квестов с ограниченным количеством шагов.',
-      'Создание ограниченного количества квестов и персонажей.',
-      'Возможность добавить до 2 участников в команду',
-      'Базовая техническая поддержка',
-    ],
-    buttonText: t('Subscriptions.buttonFree'),
-    bannerComponent: BannerStandart,
-  },
-  {
-    title: 'Gold',
-    price: 10,
-    features: [
-      'Создание более сложных квестов с большим количеством шагов и условий.',
-      'Возможность создавать квесты с более сложными диалогами, включая ветвление.',
-      'Создание 10 персонажей',
-      'Приоритетная поддержка',
-      'Возможность экспорта квестов с большей скоростью',
-      'Возможность добавить до 5 участников в свою команду.',
-    ],
-    buttonText: t('Subscriptions.buttonBuy'),
-    bannerComponent: BannerGold,
-  },
-  {
-    title: 'Premium',
-    price: 20,
-    features: [
-      'Создание квестов без ограничений по сложности, количеству шагов и условий.',
-      'Доступ к эксклюзивному контенту платформы',
-      'Возможность экспорта квестов в разные форматы без ограничений.',
-      'Персональные консультации и поддержка от разработчиков с максимально быстрым временем ответа.',
-      'Неограниченное количество участников в команде.',
-    ],
-    buttonText: t('Subscriptions.buttonBuy'),
-    bannerComponent: BannerPremium,
-  },
-];
+const SubscriptionPage: React.FC = () => {
+  const { t } = useTranslation();
+  const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);
+
+  const subscriptionPlans: SubscriptionPlan[] = [
+    {
+      title: 'Creator',
+      price: 0,
+      features: [
+        t('Subscriptions.features.creator.feature1'),
+        t('Subscriptions.features.creator.feature2'),
+        t('Subscriptions.features.creator.feature3'),
+        t('Subscriptions.features.creator.feature4'),
+      ],
+      buttonText: t('Subscriptions.buttonFree'),
+      bannerComponent: BannerStandart,
+    },
+    {
+      title: 'Gold',
+      price: 10,
+      features: [
+        t('Subscriptions.features.gold.feature1'),
+        t('Subscriptions.features.gold.feature2'),
+        t('Subscriptions.features.gold.feature3'),
+        t('Subscriptions.features.gold.feature4'),
+        t('Subscriptions.features.gold.feature5'),
+        t('Subscriptions.features.gold.feature6'),
+      ],
+      buttonText: t('Subscriptions.buttonBuy'),
+      bannerComponent: BannerGold,
+    },
+    {
+      title: 'Premium',
+      price: 20,
+      features: [
+        t('Subscriptions.features.premium.feature1'),
+        t('Subscriptions.features.premium.feature2'),
+        t('Subscriptions.features.premium.feature3'),
+        t('Subscriptions.features.premium.feature4'),
+        t('Subscriptions.features.premium.feature5'),
+      ],
+      buttonText: t('Subscriptions.buttonBuy'),
+      bannerComponent: BannerPremium,
+    },
+  ];
+
+  const handleButtonClick = (price: number) => {
+    if (price !== 0) {
+      setIsPurchaseModalOpen(true);
+    }
+  };
 
   return (
-    <div className="bg-transparent min-h-screen px-4">
+    <div className="text-white min-h-screen px-4">
       <div className="container mx-auto py-16 text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">
+        <h1 className="text-4xl font-bold text-white mb-8">
           {t('Subscriptions.title')}
         </h1>
 
-        <p className="text-lg text-gray-600 mb-12">
+        <p className="text-lg text-gray-300 mb-12">
           {t('Subscriptions.description')}
         </p>
 
@@ -76,34 +84,46 @@ const subscriptionPlans: SubscriptionPlan[] = [
             return (
               <div
                 key={plan.title}
-                className="relative flex flex-col justify-between bg-white rounded-lg shadow-md p-6 text-left hover:translate-y-[-7px] transition-transform duration-300"
+                className="relative flex flex-col justify-between dark:bg-[#1B1C22] rounded-lg shadow-md p-6 text-left hover:translate-y-[-7px] transition-transform duration-300"
               >
                 {Banner && <Banner />}
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">{plan.title}</h2>
-                  <p className="text-xl font-semibold text-gray-700 mb-6">
-                    {plan.price === 0 ? 'Базовая подписка' : `$${plan.price}/месяц`}
+                  <h2 className="text-2xl font-bold text-white mb-4">{plan.title}</h2>
+                  <p className="text-xl font-semibold text-gray-400 mb-6">
+                    {plan.price === 0 ? t('Subscriptions.priceFree') : `$${plan.price}/месяц`}
                   </p>
-                  <ul className="list-none opacity-75 pl-6 mb-6">
+                  <ul className="list-none pl-6 mb-6">
                     {plan.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="relative mb-4 pl-10"
-                      >
+                      <li key={feature} className="relative mb-4 pl-10 text-gray-300">
                         <FaCheckCircle className="absolute left-0 top-0 mt-1 text-green-500" />
                         {feature}
                       </li>
                     ))}
                   </ul>
                 </div>
+
                 <div className="mt-6">
-                  <Button title={plan.buttonText} className="w-full px-10 py-3 transition transform hover:scale-105 duration-300" />
+                  {plan.price === 0 ? (
+                    <a href="/dashboard/home">
+                      <Button
+                        title={plan.buttonText}
+                        className="w-full bg-blue-500 text-white px-10 py-3 rounded-full transition transform hover:scale-105 duration-300"
+                      />
+                    </a>
+                  ) : (
+                    <Button
+                      title={plan.buttonText}
+                      className="w-full bg-blue-500 text-white px-10 py-3 rounded-full transition transform hover:scale-105 duration-300"
+                      onClick={() => handleButtonClick(plan.price)}
+                    />
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
       </div>
+      <PurchaseModal isOpen={isPurchaseModalOpen} onClose={() => setIsPurchaseModalOpen(false)} />
     </div>
   );
 };
