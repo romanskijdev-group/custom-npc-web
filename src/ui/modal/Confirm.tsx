@@ -1,18 +1,18 @@
 import React, { MouseEventHandler } from 'react';
-import { Button } from '../buttons/Button'
+import { Button } from '../buttons/Button';
 
 interface ConfirmProps {
   open: boolean;
   setOpen: (value: boolean) => void;
   onClick?: MouseEventHandler<HTMLButtonElement> | undefined;
-  title: string
+  title: string;
 }
 
-export const Confirm: React.FC<ConfirmProps> = ({ open, setOpen, onClick,  title}) => {
+export const Confirm: React.FC<ConfirmProps> = ({ open, setOpen, onClick, title }) => {
   return (
     <div
       className={`z-[1000] absolute left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.4)] transition ${open ? 'opacity-100' : 'opacity-0 hidden'}`}>
-      <div className="bg-[#F7F7F7] sm:w-[70%] w-[90%] max-w-[500px] py-[40px] sm:px-[30px] px-[10px] rounded-lg absolute left-[50%] top-[50%] transform -translate-x-1/2 -translate-y-1/2 shadow-md transition-all duration-500 ease-in-out">
+      <div className="bg-[#F7F7F7] dark:bg-[#1B1C22] sm:w-[70%] w-[90%] max-w-[500px] py-[40px] sm:px-[30px] px-[10px] rounded-lg absolute left-[50%] top-[50%] transform -translate-x-1/2 -translate-y-1/2 shadow-md transition-all duration-500 ease-in-out">
         <svg
           className='z-[1000] hover:rotate-180 absolute right-[10px] top-[10px] w-[24px] h-[24px] cursor-pointer opacity-30 hover:opacity-100 transition duration-500'
           onClick={() => setOpen(false)}
@@ -34,12 +34,12 @@ export const Confirm: React.FC<ConfirmProps> = ({ open, setOpen, onClick,  title
             <button
                 onClick={() => {setOpen(false)}}
                 data-modal-hide="popup-modal" type="button"
-                className="py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10">
+                className="py-2.5 px-5 text-sm font-medium text-gray-900 dark:text-white focus:outline-none bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-100 hover:dark:bg-gray-600 hover:text-blue-700 focus:z-10">
               Отмена
             </button>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
