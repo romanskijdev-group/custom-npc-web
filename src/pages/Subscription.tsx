@@ -18,10 +18,11 @@ interface SubscriptionPlan {
 const SubscriptionPage: React.FC = () => {
   const { t } = useTranslation();
   const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);
+  const currentSubscription = 'User';
 
   const subscriptionPlans: SubscriptionPlan[] = [
     {
-      title: 'Creator',
+      title: 'User',
       price: 0,
       features: [
         t('Subscriptions.features.creator.feature1'),
@@ -77,6 +78,12 @@ const SubscriptionPage: React.FC = () => {
         <p className="text-lg text-gray-300 mb-12">
           {t('Subscriptions.description')}
         </p>
+
+        {/* Текущая подписка пользователя */}
+        <div className="current-subscription-card bg-blue-100 dark:bg-[#1B1C22] p-4 mb-4 rounded-lg shadow-md">
+          <h3 className="text-xl font-bold text-blue-700 dark:text-white">Текущая подписка: {currentSubscription}</h3>
+          <p className="text-gray-600 dark:text-gray-300">Вы используете {currentSubscription === 'User' ? 'базовую' : 'платную'} подписку.</p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {subscriptionPlans.map((plan) => {

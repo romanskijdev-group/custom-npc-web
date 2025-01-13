@@ -121,6 +121,7 @@
         "description": "Purchase a Premium subscription and gain access to all the platform's benefits:",
         "buttonFree": "Start for free",
         "buttonBuy": "Subscribe",
+        "buttonRenew": "Renew",
         "bannerStandart": "Free",
         "bannerGold": "Best Value",
         "bannerPrem": "Best Choice",
