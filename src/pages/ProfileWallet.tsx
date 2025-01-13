@@ -22,25 +22,25 @@ export const ProfileWallet = () => {
     return (
         <>
             {ProfileWalletHeader()}
-            <div className='col-start-2 row-start-2 col-span-2 p-2 w-128 rounded-lg relative flex place-content-between gap-8'>
-                <div className='flex flex-col gap-3 w-full'>
-                    <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md flex-1">
-                        <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Банковская карта</h2>
-                        <p className="text-gray-700 dark:text-gray-300 mb-4">Вы пока ещё не добавили карту</p>
-                        <div className="flex justify-center">
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-full">Добавить карту</button>
-                        </div>
+            <div className='col-start-2 row-start-2 col-span-2 p-2 w-full rounded-lg relative flex place-content-between gap-8'>
+            <div className='flex flex-row gap-3 w-full'>
+                <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md flex-1">
+                    <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Банковская карта</h2>
+                    <p className="text-gray-700 dark:text-gray-300 mb-4">Вы пока ещё не добавили карту</p>
+                    <div className="flex justify-center">
+                        <button className="bg-blue-500 text-white px-4 py-2 rounded-full">Добавить карту</button>
                     </div>
+                </div>
 
-                    <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md flex-1">
-                        <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">TON</h2>
-                        <p className="text-gray-700 dark:text-gray-300 mb-4">Вы не добавили кошелёк</p>
-                        <div className="flex justify-center">
-                            <TonConnectButton/>
-                        </div>
+                <div className="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md flex-1">
+                    <h2 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">TON</h2>
+                    <p className="text-gray-700 dark:text-gray-300 mb-4">Вы не подключили TON кошелёк</p>
+                    <div className="flex justify-center">
+                        <TonConnectButton />
                     </div>
                 </div>
             </div>
+        </div>
         </>
     );
 };
