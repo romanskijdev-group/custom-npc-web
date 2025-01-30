@@ -9,7 +9,7 @@ import { addProject } from '../../features/redux/projects/projectSlice'
 import { validateProjectData } from '../../features/validation/CreateProjectValidation'
 
 interface ModalProps {
-    open: boolean;
+    open: boolean;  
     setOpen: (value: boolean) => void;
 }
 

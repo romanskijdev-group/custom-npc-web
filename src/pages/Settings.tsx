@@ -162,7 +162,7 @@ export const ProfileSettings: React.FC = () => {
     </div>
     <div className="col-start-2 row-start-8 col-span-2 p-2 relative flex flex-col gap-3 w-full items-start">
       <button 
-        className="w-48 h-10 bg-red-500 text-white dark:bg-green-700 rounded-lg flex gap-3 items-center justify-center" 
+        className="w-48 h-10 bg-red-500 text-white dark:bg-red-500 rounded-lg flex gap-3 items-center justify-center" 
         onClick={handleDeleteClick}
       >
         <FaRegTrashAlt /> {t('profile.settings.delete.buttonTitle')}

@@ -1,21 +1,21 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux'
-import {RootState} from '../features/redux/store'
+import {RootState} from '../../features/redux/store.ts'
 import {IoIosArrowDropleft} from "react-icons/io";
-import {SideBarButton} from "../ui/sidebar/SideBarButton.tsx";
-import {FaHouse} from "react-icons/fa6";
-import {FaUser} from "react-icons/fa";
-import {MdCategory} from "react-icons/md";
-import {SiDialogflow} from "react-icons/si";
+import {SideBarButton} from "../../ui/sidebar/SideBarButton.tsx";
 import {AiFillCodeSandboxCircle} from "react-icons/ai";
-import {ThemeChanger} from './general/navbar/ThemeChanger.tsx';
-import {PiLightningDuotone} from "react-icons/pi";
+import {ThemeChanger} from '../../components/general/navbar/ThemeChanger.tsx';
+import { IoIosStats } from "react-icons/io";
+import { FaBell } from "react-icons/fa";
+import { MdAdminPanelSettings } from "react-icons/md";
+import { FaProjectDiagram } from "react-icons/fa";
 import Cookies from "js-cookie";
-import { AdminButton } from '../ui/sidebar/AdminButton.tsx';
-import { RiAdminLine } from "react-icons/ri";
+import { FaUsersGear } from "react-icons/fa6";
+import { FaBtc } from "react-icons/fa";
+import { FaClipboardList } from "react-icons/fa";
 
-export const SideBar = () => {
+export const AdminSideBar = () => {
     const selected = useSelector((state: RootState) => state.projects.selectedProject);
     const [isOpen, setOpen] = React.useState(Cookies.get('sideBarOpen') === 'true');
 
@@ -53,29 +53,33 @@ export const SideBar = () => {
                     style={`w-max dark:bg-[#1B1C22] dark:border-[#27282D] ${isOpen ? '' : 'mx-auto'}`}></ThemeChanger>
             </div>
             <div className='w-full border-t dark:border-[#2B2C2F]'></div>
-            <SideBarButton title='Аналитика' linkTo='/dashboard/analytics' isOpen={isOpen}>
-                <PiLightningDuotone className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
+                <SideBarButton title='Пользователи' linkTo='/dashboard/analytics' isOpen={isOpen}>
+                    <FaUsersGear className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
+                </SideBarButton>
+                
+                <SideBarButton title='Статистика' linkTo='/adminpanel' isOpen={isOpen}>
+                <IoIosStats className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
+                </SideBarButton>
+
+                <SideBarButton title='Уведомления' linkTo='/dashboard/analytics' isOpen={isOpen}>
+                    <FaBell className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
+                </SideBarButton>
+
+                <SideBarButton title='Администраторы' linkTo='/dashboard/analytics' isOpen={isOpen}>
+                    <MdAdminPanelSettings className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
+                </SideBarButton>
+
+                <SideBarButton title='Проекты' linkTo='/dashboard/analytics' isOpen={isOpen}>
+                <FaProjectDiagram className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
             </SideBarButton>
-            <AdminButton title='Админ-панель' linkTo='/adminpanel' isOpen={isOpen}>
-            <RiAdminLine className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
-            </AdminButton>
-            <div className='w-full border-t dark:border-[#2B2C2F]'></div>
-            <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative transition-all duration-300">
-                <div className="flex flex-col gap-2">
-                    <SideBarButton title='Главная' linkTo='/dashboard/home' isOpen={isOpen}>
-                        <FaHouse className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
-                    </SideBarButton>
-                    <SideBarButton title='NPC' linkTo='/dashboard/npc' isOpen={isOpen}>
-                        <FaUser className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
-                    </SideBarButton>
-                    <SideBarButton title='Квесты' linkTo='/dashboard/quests' isOpen={isOpen}>
-                        <MdCategory className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
-                    </SideBarButton>
-                    <SideBarButton title='Диалоги' linkTo='/dashboard/dialogs' isOpen={isOpen}>
-                        <SiDialogflow className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
-                    </SideBarButton>
-                </div>
-            </div>
+
+            <SideBarButton title='Финансы' linkTo='/dashboard/analytics' isOpen={isOpen}>
+                <FaBtc className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
+            </SideBarButton>
+
+            <SideBarButton title='Соглашения' linkTo='/dashboard/analytics' isOpen={isOpen}>
+                <FaClipboardList className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
+            </SideBarButton>
         </div>
     );
 };
