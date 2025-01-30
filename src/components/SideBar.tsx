@@ -12,6 +12,8 @@ import {AiFillCodeSandboxCircle} from "react-icons/ai";
 import {ThemeChanger} from './general/navbar/ThemeChanger.tsx';
 import {PiLightningDuotone} from "react-icons/pi";
 import Cookies from "js-cookie";
+import { AdminButton } from '../ui/sidebar/AdminButton.tsx';
+import { RiAdminLine } from "react-icons/ri";
 
 export const SideBar = () => {
     const selected = useSelector((state: RootState) => state.projects.selectedProject);
@@ -54,6 +56,9 @@ export const SideBar = () => {
             <SideBarButton title='Аналитика' linkTo='/dashboard/analytics' isOpen={isOpen}>
                 <PiLightningDuotone className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
             </SideBarButton>
+            <AdminButton title='Админ-панель' linkTo='/adminpanel' isOpen={isOpen}>
+            <RiAdminLine className={`${isOpen ? 'text-xl' : 'text-2xl'}`}/>
+            </AdminButton>
             <div className='w-full border-t dark:border-[#2B2C2F]'></div>
             <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative transition-all duration-300">
                 <div className="flex flex-col gap-2">
