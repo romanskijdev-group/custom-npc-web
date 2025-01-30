@@ -20,7 +20,7 @@ const ProfileWalletHeader = () => {
 };
 
 const ProfileBalance = () => {
-  const { t } = useTranslation();
+  //const { t } = useTranslation();
   const [balance] = useState(0); 
   
   return (
