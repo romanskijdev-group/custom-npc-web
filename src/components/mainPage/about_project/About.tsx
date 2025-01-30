@@ -5,7 +5,7 @@ export const About = () => {
   const { t } = useTranslation();
 
   return (
-    <div id='about' className='relative -top-[15px] flex flex-col gap-6 sm:max-w-screen-lg w-[90%] mx-auto mt-[120px] rounded-xl bg-white bg-opacity-5 border border-gray-200 dark:border-[#27282D] p-8' data-aos='fade-up'>
+    <div id='about' className='relative -top-[15px] flex flex-col gap-6 sm:max-w-screen-lg w-[90%] mx-auto mt-[120px] rounded-xl bg-white border border-gray-200 dark:bg-[#1B1C22] dark:border-[#27282D] p-8' data-aos='fade-up'>
       <h1 className='text-2xl font-bold text-gray-800 transition dark:text-white text-center mb-6'>
         {t('about.title')}
       </h1>

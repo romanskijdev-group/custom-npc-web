@@ -56,7 +56,7 @@ export const NotificationMenu: React.FC<NotificationMenuProps> = ({ onUnreadCoun
   return (
     <div 
       ref={menuRef} 
-      className="fixed top-20 right-10 w-[calc(40%-10px)] max-w-[calc(40%-10px)] lg:max-w-[calc(40%-13px)] border dark:border-gray-800 rounded-lg shadow-lg bg-white dark:bg-[#1B1D23] text-black dark:text-gray-100 z-[1000] animate-slide-in"
+      className="fixed top-20 right-10 w-[calc(40%-10px)] max-w-[calc(40%-10px)] lg:max-w-[calc(40%-13px)] mt-1 border dark:border-gray-800 rounded-lg shadow-lg bg-white dark:bg-[#1B1D23] text-black dark:text-gray-100 z-[1000] animate-slide-in"
     >
       <div className="m-4 px-4 py-2 border-gray-300 dark:border-gray-600 flex justify-between items-center">
         <h2 className="text-xl font-bold text-black dark:text-gray-100">Уведомления</h2>
